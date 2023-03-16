@@ -1,0 +1,10 @@
+Mostre todas as trocas realizadas pelo QuickSort para ordenar os seguintes valores:
+
+20 valores
+a) 100, 1, 40, 20, 33, 55, 201, 193, 440, 5, 4, 41, 92, 215, 177, 8, 18, 20, 11, 12
+
+b) 55.4, 33.7, 371.435, 88.4, 1.23, 1.22, 0.4, 0.371, 88.431, 371.436
+
+
+para entender o algoritmo, faze-lo na mao pelo menos 1 vez
+primeira prova totalmente no almaço

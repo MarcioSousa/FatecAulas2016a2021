@@ -1,0 +1,50 @@
+ObterUltimoNodoLLEndDup(LLEncDup:^DNODO):^DNODO
+	aux:^DNODO
+	aux<-LLEncDup
+	Enquanto aux <> NULO E aux->prox != NULO Faça
+		aux <- aux->prox
+	Fim-Enquanto
+	Retorne aux
+Fim_ObterUltimoNodoLLEndDup
+
+InserirFinalLLEncDup(LLEncDup:^DNODO,info:INFO)
+	aux:^DNODO
+	aux2:^DNODO
+	aux <- ObterUltimoNodoLLEndDup(LLEncDup)
+	alocar(aux2)
+	aux2->info <- info
+	aux2->prox <- NULO
+	aux2->ant <- aux
+	Se aux != NULO Então
+		aux->prox <- aux2
+	Senão
+		LLEncDup <- aux2
+	Fim-Se
+Fim_InserirFinalLLEncDup
+
+RemoverFinalLLEncDup(LLEncDup:^DNODO):^DNODO
+	ult:^DNODO
+	pnult:^DNODO
+	ult <- ObterUltimoNodoLLEndDup(LLEncDup)
+	Se ult != NULO Então
+		pnult <- ult->ant
+		pnult->prox <- NULO //se o ant do ult for nulo, da bosta
+		ult->ant <-NULO
+	Senão
+		LLEncDup <- NULO
+	Fim-Se
+	//!!!FALTA O RETURN LUL!!! (Retorne ult)
+Fim_RemoverFinalLLEndDup
+		
+semana que vem faremos uma lista 25/11
+dps sera workshop
+dia 6/12 correcao da lista
+dia 9/12 prova se prof de ingles permitir, senao 13/12
+na prova teremos que saber implementar as listas
+
+EXERCICIO de ordenacao de lista dupla, variacao do selection para listas duplamente encadeadas
+5 | 3 | 1 | 7 | 6
+pegar primeiro elemento e ultimo elemento
+se ultimo n for menor que primeiro, o ponteiro do ultimo retrocede para penultimo e assim sucessivamente
+se ponteiro que comecou no ultimo for menor que primeiro, ele troca, parando no elemento segundo
+depois, ponteiro que guardava primeiro guarda segundo e faz a mesma coisa

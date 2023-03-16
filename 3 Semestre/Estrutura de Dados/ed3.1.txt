@@ -1,0 +1,45 @@
+os exercicios ateh agora tiveram o intuito de entender a complexidade dos algoritmos
+os algoritmos sao uma sequencias de passos finitos que geram uma saida
+calcular o fatorial de 1 milhao n ha um computador na terra para isso, n existe recursos para isso
+algoritmo guloso: usa todos os recursos da cpu. ex: força bruta, maneira burrinha
+eficiente, resolve algoritmo da melhor maneira possivel, em tempo e recursos
+
+tamanho maximo do problema = tamanho maximo da entrada
+maquina lenta e maquina rapida, no mesmo tempo, resolvem problemas de tamanhos diferentes
+
+o esforço que o computador gasta para resolver o problema eh o mesmo para qualquer entrada, mas a quantidade de entradas aumenta o tempo.
+
+melhorar complexidade = diminuir esforço computacional
+
+1.2.2 complexidade deve ser pensada nas varias fases do projeto do algoritmo
+
+memset(v,0,1000000); //funcao em C para inicializar vetor
+a soma de boas praticas resulta na melhora do desempenho do algoritmo
+
+complexidade deve ser pensada em grandes entradas, para pequenas mais simples sao melhores.
+
+vc deve impor limites para o tamanho do seu programa, pq o hardware possui limites
+
+maior numero primo, segurança para gerar chaves...
+calcular numero primo n eh um problema linear, n sao computaveis (english term)
+
+fibonacci eh usado em criptografia e compactacao
+
+acontece de n se conseguir armazenar os valores gerados, a maior variavel n os comporta
+
+1-complexidade proporcional a entrada
+2-complexidade proporcional ao numero de operacoes que se deve resolver
+
+1-tempo
+2-tamanho, espaço de memoria
+
+complexidade eh quanto esforço um algoritmo requer para a solucao de um problema, sendo medidos pelos fatores 1 e 2 acima
+
+programar com consciencia doq faz, obviously
+
+indice, arvore, pode n caber na memoria. quando se quer trabalhar com dados na memoria secundaria
+
+google consegue pesquisar conteudo das paginas web, ele indexa o conteudo, por isso eh famoso
+ele sugere pesquisas pq jah foram feitas e estao prontas
+
+pq faremos: entender complexidades padrao e pq os algoritmos tem essas complexidades

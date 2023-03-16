@@ -1,0 +1,9 @@
+exercicio
+
+com base no exercicio 2 (bubble sort), implemente o metodo de ordenacao selectionsort e aplique a ordenacao a mesma sequencia de numeros utilizada no bubblesort. para cadacombinacao ordenada via bubblesort o programa devera aplica-la a ordenacao selectionsort.
+o programa devera exibir:
+a) a sequencia de entrada para o bubblesort e para o selectionsort;
+b) o total de trocas realizadas pelo bubblesort p/ a sequencia de entrada;
+c) o total de trocas para o selectionsort
+d) o maximo de trocas p bubble e selection
+e) o minimo de trocas para bubble e selection

@@ -1,0 +1,123 @@
+Listas Lineares com Disciplina de Acesso
+
+->LIFO
+	Last-In First-Out
+	Implementado por meio de tipos abstratos Pilha
+	insere final, remove final
+
+->FIFO
+	First-In First-Out
+	Implementado por meio de tipos abstratos FILA
+	insere final, remove inicio
+
+Pilhas (Stacks)
+	São tipos de dados e implementadas a partir de tipos abstratos
+	Mantém uma disciplina de acesso rigorosa:
+		Inserções são feitas apenas no final da Lista Linear
+		Remoções são feitas apenas do final da Lista Linear
+	São TADs construídos a partir de Listas Lineares Simples ou Duplas
+	Existem cinco operações sobre Pilhas
+		Criar/Inicializar
+		Inserir(push)
+		Remover(pop)
+		Consultar topo (get)
+		Destruir
+
+	TAD
+		Definir tipo pilha como LLEncDup
+		C:
+			typedef DNODO LLEncDup;
+			typedef LLEncDup Pilha;
+
+	Operações
+		InicializarPilha(pilha: ^Pilha)
+			InicializarLLEncDup(pilha)
+		Fim_InicializarPilha
+		
+		DestruirPilha(pilha: ^Pilha)
+			DestruirLLEncDup(pilha)
+		Fim_DestruirPilha
+		
+		Push(pilha: ^Pilha, info: INFO)
+			InserirFinalLLEncDup(pilha, info)
+		Fim_Push
+		
+		Pop(pilha: Pilha): ^DNODO
+			retorne RemoverFinalLLEncDup(pilha)
+		Fim_Pop
+		
+		Get(pilha: ^Pilha): INFO //consulta informacao do nodo no topo da pilha
+			aux: ^DNODO
+			info: INFO
+			aux <- pop(pilha)
+			Se aux <> NULO Então
+				info <- aux->info
+				push(pilha,info)
+			Fim_Se
+			retorne info
+		Fim_Get
+		
+		
+Exercicios:
+Utilizando pilhas implemente os exercicios a seguir:
+
+1-Receba uma lista de valores finalizando com 0, armazene-os em uma pilha e a exiba na ordem inversa da entrada
+entrada:
+1 3 4 8 3 2 0
+saida:
+2 3 8 4 3 1
+
+solucao:
+#include <llencdup.h>
+
+int main(void){
+	Pilha * pilha; Dnodo * aux;
+	int num;
+	InicializarPilha(&pilha);
+	cin >> num;
+	while(num != 0){
+		push(&pilha,num);
+		cin >> num;
+	}
+	aux=pop(&pilha);
+	while(pilha!=NULL&&aux!=NULL){
+		cout << aux->info;
+		aux=pop(&pilha);
+	}
+}
+
+2-Receba dez numeros e os armazene em uma pilha. Em seguida, verifique se a sequência de numeros segue o padrao: par ímpar par ímpar...
+Se a sequência estiver correta exibir OK. Se estiver incorreta exibir NOK
+entrada:
+10 1 3 4 8 12 16 8 9 10
+saida:
+NOK
+
+solucao:
+int main(void){
+	bool OK;
+	int indx, num;
+	DNODO * aux;
+	Pilha * pilha;
+	InicializarPilha(&pilha);
+	for(indx=0;indx<10;indx++){
+		cin >> num;
+		push(&pilha,num);
+	}
+	aux=pop(&pilha);
+	OK=true;
+	for(indx=0;indx<10;indx++){
+		if((indx%2)==0){
+			if((aux->info%2)!=1){
+				OK = false;
+				break;
+			}
+		}else{
+			if((aux->info%2)!=0){
+				OK=false;
+				break;
+			}
+		}
+	}
+	cout<<(OK)?"OK":"NOK";
+}

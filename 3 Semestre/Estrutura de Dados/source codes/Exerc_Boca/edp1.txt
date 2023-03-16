@@ -1,0 +1,25 @@
+Faça um programa em linguagem C/C++ que imprima os cem primeiros números
+naturais.
+
+Exemplo:
+
+Entrada:
+(nada)
+
+Saída:
+
+0
+1
+2
+3
+.
+.
+.
+98
+99
+
+Observações:
+a) somente deverá ser impresso um múmero por linha;
+b) nenhum espaço (ou outro caractere) à direita ou à esquerda de cada 
+   número deve ser impresso;
+c) toda linha impressa deve terminar com <line feed> (\n, endl, 0xA);

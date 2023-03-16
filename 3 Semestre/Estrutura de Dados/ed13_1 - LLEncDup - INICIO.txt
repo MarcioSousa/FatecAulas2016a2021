@@ -1,0 +1,68 @@
+/*3 exercicios
+lista 2
+lista encadeada simples
+
+exercicio 2: insercoes no final da lista
+
+exercicio 3: sqrt
+float tamanho armazena o tamanho da reta, q calcularemos
+2 casas de precisao na saida*/
+
+
+	-Listas Duplamente Encadeadas
+Cada nó contém dois ponteiros
+->prev (ant);
+->next (prox);
+
+Estrutura SDNODO
+	info : INFO
+	prox : ^Estrutura SDNODO
+	ant : ^Estrutuda SDNODO
+Fim
+
+->Operações
+-InicializarLLEncDup
+-DestruirLLEncDup
+-InserirInicioLLEncDup
+-InserirFinalLLEncDup
+-RemoverInicioLLencDup
+-RemoverFinalLLEncDup
+
+Procedimento InicializarLLEncDup(LLDup : ^Estrutura SDNODO) : NADA/VAZIO
+	LLDup <- NULO
+Fim_Procedimento
+
+Procedimento DestruirLLEncDup(LLDup: ^Estrutura SDNODO) : NADA
+	aux : ^Estrutura SDNODO
+	aux <- LLDup
+	
+	Enquanto aux <> NULO Faça
+		LLDup <- LLDup->prox;
+		Desalocar(aux)
+		aux <- LLDup
+	Fim_Enquanto
+Fim_Procedimento
+
+Procedimento InserirInicioLLEncDup(LLDup:^Estrutura SDNODO, info:INFO):NADA
+	aux:^Estrutura SDNODO
+	aux->ant <- NULO
+	aux->info <- info
+	aux->prox <- LLDup
+	LLDup <- aux
+Fim_Procedimento
+
+Procedimento RemoverInicioLLEncDup(LLDup:^Estrutura SDNODO):^Estrutura SDNODO
+	aux:^Estrutura SDNODO
+	aux<-LLDup
+	Se LLDup = NULO Então
+		Retornar LLDup
+	Fim_Se
+	LLDup <- LLDup->prox
+	Se LLDup <> NULO Então
+		LLDup->ant <- NULO
+	Fim_Se
+	aux->prox <- NULO
+	Retornar aux
+Fim_Procedimento
+
+/*bom para busca, prev e succ, 

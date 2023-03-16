@@ -1,0 +1,69 @@
+Assunto: MICROBIOLOGIA
+Identif: 737.4.202 S2002              Tombo: 8689 
+Título : Os bichos são assim
+Autor .: Silva, José da Silva, Vanderlei da
+Editora: LTC Ano: 1990
+Edição : Única       Volume: Único     Páginas: 300
+===================================================
+Assunto: PROGRAMAÇÃO
+Identif: 681.5.203 S442             Tombo: 3994 
+Título : Técnicas de programação estruturada
+Autor .: Silva, João da
+Editora: Campus Ano: 1992
+Edição : 2          Volume: Único      Páginas: 253
+===================================================
+Assunto: MATERIAIS
+Identif: 588.9.949 S3003          Tombo: 5009 
+Título : Ensaios de dureza e de moleza
+Autor .: Silva, Pedro da
+Editora: LTC Ano: 1993
+Edição : Única     Volume: Único       Páginas: 330
+===================================================
+Assunto: FISIOLOGIA
+Identif: 737.4.234 S2323        Tombo: 8332
+Título : O funcionamento do intestino
+Autor .: Silva, Ana da
+Editora: Globo Ano: 1990
+Edição : 3         Volume: Único       Páginas: 300
+===================================================
+Assunto: USINAGEM
+Identif: 588.3.342 S4343      Tombo: 9039 
+Título : Torno radial: Como funciona a coisa
+Autor .: Silva, Antonio da
+Silva, Joaquim da
+Silva, Pedro da
+Editora: LTC Ano: 1994
+Edição : Única      Volume: Único      Páginas: 505
+===================================================
+Assunto: MICROBIOLOGIA
+Identif: 737.4.180 S2023          Tombo: 8623 
+Título : Bactérias, micróbios e coisas parecidas
+Autor .: Silva, Maria da
+Silva, Vanderlei da
+Editora: Erika Ano: 1989
+Edição : Única      Volume: Único      Páginas: 300
+===================================================
+Assunto: BANCOS DE DADOS
+Identif: 683.2.343 S334         Tombo: 3934 
+Título : Teoria de bancos de dados
+Autor .: Silva, Teobaldo da
+Editora: Campus Ano: 1990
+Edição : Única      Volume: Único     Páginas: 450
+===================================================
+Assunto: CALCULO
+Identif: 333.5.656 S1849         Tombo: 4349 
+Título : Calculo diferencial e integral
+Autor .: Silva, Arlete da
+Editora: LTC Ano: 1990
+Edição : Única Volume: 1 Páginas: 300
+
+Na tabela Editora, preencher com os dados do pdf
+Abra a tabela livro, na coluna Editora, edite e 
+coloque como chave estrangeira para ficar como
+ligação com a tabela editora.
+
+
+
+
+
+

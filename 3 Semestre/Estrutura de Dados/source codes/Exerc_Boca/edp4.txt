@@ -1,0 +1,27 @@
+Faça um programa em linguagem C/C++ que imprima os n numeros primos informados
+O programa receberá uma valor que representa a quantidade de números que
+serão analisados. O programa deverá analisar se o numero é primo. Caso seja, 
+ele deverá exibí-lo. Caso contrário, o numero deverá ser ignorado e um
+novo número deverá ser lido. 
+
+Exemplo:
+
+Entrada:
+5
+2
+4
+5
+6
+11
+
+Saída:
+
+2
+5
+11
+
+Observações:
+a) somente deverá ser impresso um múmero por linha;
+b) nenhum espaço (ou outro caractere) à direita ou à esquerda de cada 
+   número deve ser impresso;
+c) toda linha impressa deve terminar com <line feed> (\n, endl, 0xA);

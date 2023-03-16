@@ -1,0 +1,3 @@
+﻿ALTER TABLE sis_tiponf ALTER COLUMN descricao TYPE VARCHAR(50);
+ALTER TABLE sis_sinemp ADD COLUMN diss_col NUMERIC(2,0);
+ALTER TABLE sis_tipsen ALTER COLUMN descricao TYPE VARCHAR(40);

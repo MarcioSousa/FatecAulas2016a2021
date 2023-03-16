@@ -1,0 +1,34 @@
+Faça um programa em linguagem C/C++ que imprima os n primeiros números
+naturais m vezes conforme a quantidade informada (n números)
+Primeiro o programa devera receber a quantidade de vezes que os n numeros
+serão exibidos. Depois, na sequencia existirão m numeros cada número repre-
+senta os n números que serão exibidos.
+No exemplo a seguir, o primeiro 3 representa a quantidade de vezes que serão 
+exibidos os n números. O segundo número, o 4, representa a quantidade de 
+números naturais que serão exibidos e assim sucessivamente.
+
+Exemplo:
+
+Entrada:
+3
+4
+3
+2
+
+Saída:
+
+0
+1
+2
+3
+0
+1
+2
+0
+1
+
+Observações:
+a) somente deverá ser impresso um múmero por linha;
+b) nenhum espaço (ou outro caractere) à direita ou à esquerda de cada 
+   número deve ser impresso;
+c) toda linha impressa deve terminar com <line feed> (\n, endl, 0xA);

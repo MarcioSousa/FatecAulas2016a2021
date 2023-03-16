@@ -1,0 +1,82 @@
+SELECT * FROM MEDICOS
+GO
+
+SELECT * FROM AMBULATORIOS
+GO
+
+SELECT * FROM PACIENTES
+GO
+
+SELECT * FROM CONSULTA
+GO
+
+SELECT * FROM MEDICOS
+WHERE Cidade = 'Itu'
+GO
+
+SELECT NmPaciente FROM PACIENTES
+WHERE NmPaciente LIKE 'R%'
+GO
+
+SELECT CRM, NmMedico, Especialidade FROM MEDICOS
+ORDER BY Especialidade
+GO
+
+SELECT * FROM PACIENTES
+WHERE Idade > 10 AND Idade < 30
+GO
+
+SELECT NmPaciente, Idade FROM PACIENTES
+WHERE Cidade = 'Sorocaba' OR Doenca = 'Virose'
+GO
+
+SELECT NmMedico FROM MEDICOS
+WHERE Especialidade = 'Oftalmologia' AND Idade > 35 AND Idade < 55 AND Cidade = 'Salto'
+GO
+
+SELECT NmMedico, Nr_Ambul FROM MEDICOS
+GO
+
+SELECT NrAmbul FROM AMBULATORIOS
+WHERE NrAndar <> 2 AND NrAndar <> 4 AND Capacidade > 50
+GO
+
+SELECT * FROM CONSULTA
+WHERE CRM <> '46' AND CRM <> '79'
+GO
+
+SELECT NmMedico, Especialidade FROM MEDICOS
+GO
+
+SELECT * FROM AMBULATORIOS
+WHERE Capacidade = 50 OR NrAmbul > 10
+GO
+
+SELECT C.RGPaciente FROM PACIENTES P
+INNER JOIN CONSULTA C
+ON P.RGPaciente = C.RGPaciente
+WHERE C.Data_hora > '20160901'
+GO
+
+SELECT NrAmbul FROM AMBULATORIOS
+WHERE NrAndar = 3
+GO
+
+SELECT * FROM PACIENTES
+WHERE Doenca = 'Sarampo'
+GO
+
+SELECT DISTINCT Doenca FROM PACIENTES
+GO
+
+SELECT NmPaciente,Idade FROM PACIENTES
+ORDER BY NmPaciente, Cidade
+GO
+
+SELECT * FROM PACIENTES
+WHERE idade > 15 AND (Cidade = 'Itu' OR Cidade = 'Salto') AND Doenca = 'Rubéola'
+GO
+
+SELECT VrConsulta, VrConsulta + ( VrConsulta * 0.1) AS ValorTotal FROM CONSULTA
+WHERE CRM = '111222' AND MONTH(Data_hora) BETWEEN 4 AND 4 AND YEAR(Data_hora) BETWEEN 2016 AND 2016
+GO

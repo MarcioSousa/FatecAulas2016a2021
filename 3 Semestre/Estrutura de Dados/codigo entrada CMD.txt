@@ -1,0 +1,2 @@
+cd desktop
+main1.exe < entrada.txt

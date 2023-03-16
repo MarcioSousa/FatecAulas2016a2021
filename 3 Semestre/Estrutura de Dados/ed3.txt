@@ -1,0 +1,13 @@
+bubble e selection possuem o mesmo numero de trocas
+eles apresentam uma ineficiencia
+fazem trocas que podem ser alteradas depois
+10 3 1 8 2 usada como exemplo
+
+melhorar desempenho: minimizar numero de operacoes(trocas), se n totalmente, parcialmente
+
+algoritmo insertion, considerado simples tbm
+insere valor na posicao que ele deve ter
+marca primeiro elemento, compara e vai marcando menor, para substituir na primeira posicao
+
+poderiamos avaliar algoritmos por trocas ou loops
+trocas sao os elementos mais elementares da ordenacao

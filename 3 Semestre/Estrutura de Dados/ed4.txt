@@ -1,0 +1,38 @@
+eficiencia do bubble sorte eh quadratica
+
+operacao fundamental - a mais critica do algoritmo
+no nosso exemplo haviamos considerado as trocas
+mas a mais executada dentro da ordenacao eh a comparacao, n a troca
+
+limite assintotico, para onde a funcao tende, no bubble tende ao quadrado
+
+tabela:entrada/entrada ao quadrado/comparacoes/diferenca/%
+	10	100		    54		46	 46
+	10	100		    36		64	 64
+	10	100		    54		46	 46
+
+diferenca entre comparacao e assintota(entrada ao quadrado)
+5 colunas
+
+temos que entender que o comportamento de um algoritmo em geral possui uma determinada complexidade. nos temos que entender oq eh essa complexidade e que por causa dela havera algoritmos mais eficientes do que outros.
+maior complexidade = maior trabalho = mais tempo
+
+randomizacao, funcao basica mostrada, mostra um conjunto de numeros
+limite eh o tamanho maximo que ele quer randomizar
+o mod limita o valor de rand() entre 0 e lim
+
+bubble:    1m8s
+selection: 37s
+insertion: 13s
+
+tarefa:
+encontrar tempo de cada entrada de valores
+10
+100
+1000
+10000
+100000
+
+usar long int
+separar em programas diferentes, pq como vai contar o tempo neh?
+

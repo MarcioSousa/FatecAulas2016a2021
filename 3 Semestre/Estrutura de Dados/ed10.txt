@@ -1,0 +1,96 @@
+-> Remoções nas LLEncSimples
+
+Inicio
+	Validacoes
+		Lista Vazia
+		Lista com um elemento
+		Lista com mais de um elemento
+
+		
+//sem tail
+RemoverInicioLLEncSimples1(LL:^Nodo):^Nodo //retorna o elemento removido
+	aux: ^Nodo
+	aux <- LL
+	SE LL <> NULO ENTÂO
+		LL <- aux->prox
+		aux->prox <- NULO
+	Fim-SE
+	RETORNE aux
+Fim-RemoverInicioLLEncSimples1
+Implementacao
+NODO * RemoverInicioLLEncSimples1(NODO ** LL){
+	NODO * aux = * LL;
+	if(aux != NULL){
+		*LL = aux->prox;
+		aux->prox = NULL;
+	}
+	return(aux);
+}
+
+//com tail
+RemoverInicioLLEncSimples2(Head: ^NODO, Tail: ^NODO): ^NODO
+	aux: ^NODO
+	aux <- Head
+	SE aux <> NULO ENTÂO
+		Head <- aux->prox
+		aux->prox <- NULO
+		SE Head = NULO ENTÂO //lista tornou-se vazia
+			Tail <- NULO
+		Fim-SE
+	Fim-SE
+	RETORNE aux
+Fim-RemoverInicioLLEncSimples2
+Implementacao
+NODO * RemoverInicioLLEncSimples2(NODO * Head, NODO * Tail){
+	NODO * aux = * Head;
+	if(aux != NULL){
+		*Head = aux->prox;
+		aux->prox - NULL;
+		if(*Head == NULL){
+			*Tail = *Head;
+		}
+	}
+	return(aux);
+}
+
+ObterEndereçoPenultimoNoLLEncSimples(LL:^NODO): ^NODO //usado para remover ultimo elemento lista
+	SE LL = NULO ENTÂO //vazia
+		RETORNE(LL)
+	Fim-SE
+	SE LL->prox = NULO ENTÂO //1 elemento
+		RETORNE(LL->prox)
+	Fim-SE
+	SE (LL->prox)->prox = NULO ENTÂO //mais de 1 elemento
+		RETORNE LL
+	Fim-SE
+	RETORNE ObterEndereçoPenultimoNoLLEncSimples(LL->prox)
+Fim-ObterEndereçoPenultimoNoLLEncSimples
+Implementacao
+NODO * ObterEnderecoPenultimoNoLLEncSimples(NODO * LL){
+	if(LL == NULL) //vazia
+		return LL;
+	if(LL->prox == NULL) //1 elemento
+		return LL->prox;
+	if((LL->prox)->prox == NULL) //mais de 1 elemento
+		retorn LL;
+	return ObterEnderecoPenultimoNoLLEncSimples(LL->prox);
+}
+
+RemoverFinalLLEncSimples(LL: ^NODO): ^NODO //ptr = ponteiro
+	ptr : ^NODO
+	ptr <- ObterEnderecoPenultimoNoLLEncSimples(LL)
+	aux <- LL
+	SE ptr <> NULO ENTÂO
+		aux <- ptr->prox
+		ptr->prox <- NULO
+	SENÂO
+		SE LL <> NULO ENTÂO
+			LL <- NULO
+		Fim-SE
+	Fim-SE
+	retorne(aux)
+Fim-RemoverFinalLLEncSimples
+Implementacao
+//faltou
+
+//lista com exercicios impossiveis e inimaginaveis

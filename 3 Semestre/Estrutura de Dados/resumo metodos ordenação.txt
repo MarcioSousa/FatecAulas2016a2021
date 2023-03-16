@@ -1,0 +1,18 @@
+bubble
+compara 1 com 2, 2 com 3...
+
+selection
+compara 1 com 2, 3... trocando
+
+insertion
+compara 1 com 2, 3... trocando ao final
+
+
+quick
+maiores que mediana para direita, menores para esquerda
+
+heap
+achar maior usando arvore binaria e coloca ele no final
+
+merge
+ordenando por partes

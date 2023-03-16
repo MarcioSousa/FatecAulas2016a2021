@@ -1,0 +1,58 @@
+﻿Procedimento Intercala(v : array inteiro, 
+					   p :inteiro, q :inteiro, r : inteiro) //q valor medio, r tamanho/ultima posicao
+	variáveis
+		i, j, k : inteiro;
+		w :array inteiro; //w de work
+	fim-variáveis
+	
+	início
+		para i <- p até q-1 incremento 1 faça
+			w[i-p] <- v[i]
+		fim-para
+		
+		para j <- q até r-1 incremento 1 faça
+			w[r-p+q-1] <- v[j]
+		fim-para
+		
+		i <- 0
+		j <- r-p-1;
+		para k <- p até r-1 incremento 1 faça
+			se w[i] <= w[j] então
+				v[k] <- w[i]
+				i <- i+1
+			senão
+				v[k] <- w[j]
+				j <- j-1
+			fim-se
+		fim-para
+		w <- nulo
+	fim
+fim-procedimento
+
+Procedimento MergeSort(v : array inteiro, p : inteiro, r : inteiro)
+	variáveis
+		q : inteiro
+	fim-variáveis
+	
+	início
+		se p < r-1 então //teste para vetor nao ser menor que 1 ou 2
+			q <- (p+r)/2 //mediana
+			MergeSort(v,p,q) 
+			MergeSort(v,q,r)
+			Intercala(v,p,q,r)
+		fim-se
+	fim
+fim-procedimento
+
+/*
+merge eh misturar
+duplica a area de memoria temporariamente, pois cria um vetor auxiliar
+usa o vetor para recuperar os valores em ordem crescente
+eh um algoritmo que se baseia na tecnica de dividir e conquistar
+
+o mergesort recebe o vetor, posicao inicial e tamanho do vetor
+calcula mediana
+
+terceiro melhor algoritmo no quisito eficiencia
+ele eh bom em tempo, mas eh ruim em memoria, pois aloca em dobro
+*/			

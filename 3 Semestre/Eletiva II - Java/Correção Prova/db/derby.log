@@ -1,0 +1,29 @@
+Mon Sep 25 10:50:22 BRT 2017 : Apache Derby Servidor de Rede - 10.8.1.2 - (1095077) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+----------------------------------------------------------------
+Mon Sep 25 11:23:25 BRT 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instância a816c00e-015e-b94d-9146-00000e74bcb8
+no diretório de banco de dados C:\Users\AbutuaNote4\Desktop\db\DBAula  
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_141-b15
+user.dir=C:\Users\AbutuaNote4\Desktop\db
+derby.system.home=null
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Sep 25 11:23:51 BRT 2017:
+Encerrando a instância a816c00e-015e-b94d-9146-00000e74bcb8
+Mon Sep 25 11:23:51 BRT 2017 Thread[DRDAConnThread_4,5,main] (DATABASE = DBAula), (DRDAID = {3}), Banco de dados 'DBAula' fechado.
+----------------------------------------------------------------
+Mon Sep 25 11:23:56 BRT 2017:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instância 45b300a8-015e-b94d-9146-00000e74bcb8
+no diretório de banco de dados C:\Users\AbutuaNote4\Desktop\db\DBAula  
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_141-b15
+user.dir=C:\Users\AbutuaNote4\Desktop\db
+derby.system.home=null
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Sep 25 13:03:03 BRT 2017:
+Encerrando a instância 45b300a8-015e-b94d-9146-00000e74bcb8
+Mon Sep 25 13:03:03 BRT 2017 Thread[DRDAConnThread_3,5,main] (DATABASE = DBAula), (DRDAID = {10}), Banco de dados 'DBAula' fechado.

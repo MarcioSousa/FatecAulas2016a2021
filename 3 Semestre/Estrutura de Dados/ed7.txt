@@ -1,0 +1,25 @@
+BOCA
+software para fazer controle de submissao
+pode ser usado em competicao ou em listas de exercicio academicamente
+o codigo eh desenvolvido em nosso computador e dps subemete-se no BOCA para serem realizados os testes
+
+
+
+
+fazer em C++
+balaozinho, referencia as maratonas
+
+usuario 5 hj ein
+eduser5
+A12345678a
+
+CODES:
+using namespace std;
+std::cout
+
+int * v;
+int tam;
+cin >> tam;
+v = new int(tam);
+v[0]
+

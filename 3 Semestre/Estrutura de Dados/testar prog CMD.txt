@@ -1,0 +1,13 @@
+para testar programa
+rodar programa no prompt
+
+executavel.exe < entrada.txt > saida_exe
+cmp saida.exe saida.txt
+
+cmp = compare
+se n exibir nada sao identicos
+1 byte ele mostra a diferenca
+
+
+diff -> linux
+cmp -> windows

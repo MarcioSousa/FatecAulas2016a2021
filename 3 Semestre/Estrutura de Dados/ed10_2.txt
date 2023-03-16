@@ -1,0 +1,7 @@
+dividir e conquistar n funciona bem em listas, pq o acesso delas n eh aleatorio
+assim, listas devem ser ordenadas com algoritmos simples ou jah ordenar na insercao
+n devemos trocar o nó da lista, apenas trocar o conteudo/valor do nó
+
+1º exercicio - encerra ao receber 0
+
+INFO = conteudo/valor do nó

@@ -1,0 +1,38 @@
+Ver senha: http://www.abutua.com/moodle/login/index.php
+Oicram27#
+=======================================================
+Aula de 12/09/2017
+
+Java Serv Face
+Java Persistent PI
+
+Será feito um projeto no final
+
+File/New/MarvenProject
+
+Derbi é um banco de dados simples que vem Imbutido
+
+TomCat servidor gratuíto
+
+Passos:
+	Java EE
+	Server
+	Configurar TomCat v8.0
+	Clica com o direito e clique em iniciar(start)
+	Na aba console estará todos os dados
+	No navegador, digite "localhost:8080" (status 404, funcionando)
+	
+	Atualizar o pom
+	Interface Gráfica
+	
+	Copie sempre duas pastas em usuário, ".m2" e ".p2" 
+	para não fazer mais o download
+	
+	primefaces_user_guide_6_1, guia de usuário com códigos em 
+	xhtml para montagem de sites.
+	
+	Ótimo para utilidade e montagem de sites usando Eclipse juntamente
+	com TomCat mais atualizado (versão 8, 9, 10 em diante)
+	
+	
+	

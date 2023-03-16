@@ -1,0 +1,8 @@
+SELECT * FROM CONSULTA
+GO
+
+UPDATE CONSULTA SET VrConsulta = VrConsulta + (VrConsulta * 0.05)
+GO
+
+SELECT * FROM CONSULTA
+GO

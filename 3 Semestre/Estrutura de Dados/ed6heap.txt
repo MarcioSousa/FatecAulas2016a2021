@@ -1,0 +1,37 @@
+segundo melhor algoritmo de ordenacao
+quicksort eh pior quando os valores estao todos em ordem inversa
+
+BuildMaxHeap
+	pos <- tam_vet / 2
+
+	enquanto pos > 0 faça
+		maxHeapFy(v, pos)
+		pos <- pos - 1
+	fim-enquanto
+
+MaxHeapFy(v, i)
+	i <- 
+	l <- 
+	r <-
+	maior <-
+	troca
+
+
+//HeapSort
+Procedimento HeapSort(v[]:inteiro)
+
+variáveis
+	tam:inteiro
+fim-variáveis
+
+início
+	BuildMaxHeap(v)//faz do vetor um HeapMaximo
+	tam <- tamanho_vetor
+	enquanto tam > 0 faça
+		trocar(v[1], v[tam])//troca ultimo com primeiro/maximo
+		tamanho_vetor <- tamanho_vetor - 1 / tam <- tam - 1
+		MaxHeapFy(v, 1)
+	fim-enquanto
+fim
+
+tentar fazer nossa implementacao, pq eh oq importa

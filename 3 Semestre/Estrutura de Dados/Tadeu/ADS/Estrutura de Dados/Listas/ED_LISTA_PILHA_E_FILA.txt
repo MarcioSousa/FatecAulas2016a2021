@@ -1,0 +1,10 @@
+resolver os exercicios de 1 a 27 (exceto 2 e 20), ao todo 25, 10+10+5
+
+1- 2 pilhas, uma cresce para esquerda, outra normal.
+	preciso verificar se eu removo o ultimo elemento de determinada pilha pra n ferrar a outra
+
+2- nao fazer
+
+3- 
+
+20- nao fazer

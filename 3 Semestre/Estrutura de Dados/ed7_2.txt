@@ -1,0 +1,42 @@
+vamos ver como trabalhamos com orientacao a objetos em c++
+
+o conceito de orientacao a objetos eh o mesmo em qualquer linguagem
+veremos os elementos basicos para fazermos listas, pilhas...
+um dos pilares da poo eh a abstracao
+
+a linguagem C permite que criemos objetos de 2 maneiras diferentes: estatica e dinamica
+
+static quer dizer que vc cria com um tamanho definido de memoria, no tempo da compilacao, n muda
+por isso ides dao warning para variaveis n usadas, pq ocupara memoria desnecessaria
+
+ponteiro = referencia em c# & java
+guardara uma area de memoria que ainda n existe
+
+em c++, a diferenca eh q num objeto estatico vc acessa elementos do objeto atraves do '.' e um objeto dinamico, cujo endereço esta armazenado numa variavel ponteiro, acessamos atraves do '->' (vulgo setinea)
+
+o boca nos força a colocar tudo dentro de um mesmo arquivo
+podemos criar fora de inicio, mas antes de submeter devemos juntar
+
+a classe eh como se fosse um struct com metodos dentro
+
+em C++, private soh permite dentro da classe, subclasses estao fora
+protected pode ser usado por classes e subclasses
+public pode ser usado por qualquer um
+
+por uma questao de encapsulamento
+encapsulamento quer dizer que atributos devem ser private. qualquer elemento/codigo externo soh pode fazer alteracoes atraves de gets&Sets ou metodos publicos
+
+sobrecarga: metodos com mesmo nome, porem assinaturas diferentes
+
+n eh necessario declarar o nome do parametro na assinatura, apenas no metodo mesmo
+
+new em C++ eh usado tanto para instanciar objeto quanto para alocar memoria
+
+:: se chama designador, e diz a que classe pertence aquele metodo
+
+//criando a classe
+quando criamos uma classe, ele cria 2 arquivos: 
+
+excecao: erro contextual de execucao que, se nao tratado, pode gerar uma interrupção
+
+proxima aula implementaremos os metodos de ordenacao com poo

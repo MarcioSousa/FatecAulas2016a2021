@@ -1,0 +1,1 @@
+﻿ALTER TABLE adm_fatura ADD COLUMN desc_neg NUMERIC(14,2) DEFAULT 0;

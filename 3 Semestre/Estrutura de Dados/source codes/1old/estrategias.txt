@@ -1,0 +1,3 @@
+indo devagar:
+Uma maneira de acelerar um algoritmo de força bruta é reduzir o espaço de busca, isto é, o conjunto de candidatos à solução, usando meta-heurísticas específicas da classe do problema.
+

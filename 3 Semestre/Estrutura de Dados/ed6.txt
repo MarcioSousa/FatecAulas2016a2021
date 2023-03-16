@@ -1,0 +1,23 @@
+BuildMaxHeap
+
+MaxHeapFy
+
+a ideia do heap eh tratar os elementos armazenados no vetor como arvore binaria
+quem esta na posicao 2n fica a esquerda e 2n+1 na direita
+
+Heap maximo e minimo, propriedades
+o MaxHeapFy é o pai com o maximo dos valores. O minimo o inverso. Pode nao ser nem maximo nem minimo
+ele vai transformando determinada parte em heap maximo
+
+BuildHeap faz o seguinte: calcula posicao = tamanho_vetor / 2
+elemento zero nunca eh usado
+um vetor de 8 elementos, tamanho sera 7, ultima posicao
+
+dps ele faz um laço enquanto pos > 0 faça, percorrendo a arvore ate a raiz, transformando as subarvores em um heapmaximo
+
+o maxheapfy leva o valor maximo para a raiz(para cima)
+joga o maximo para a ultima posicao e desconsidera o maior agora, diminuindo o tamanho do vetor trabalhado
+
+//16/09
+selection eh o mais facil de implementar
+bubble complexidade n^2

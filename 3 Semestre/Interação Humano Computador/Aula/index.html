@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+    <title>Página Web Semântica</title>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!-- Bootstrap  CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap  JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Navegação</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Fatec Itu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Início</a></li>
+              <li><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
+              <li><a href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> Contato</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Usuários</a></li>
+                  <li><a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Produtos</a></li>
+                  <li><a href="#"><i class="fa fa-address-card" aria-hidden="true"></i> Clientes</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</li>
+                  <li><a href="#"><i class="fa fa-camera" aria-hidden="true"></i> Imagens</a></li>
+                  <li><a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Idioma</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#"><i class="fa fa-lock" aria-hidden="true"></i> Login</a></li>              
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Seja bem vindo!</h1>
+        <p>Seja bem vindo ao projeto Fatec Itu. Todo conteúdo desse site é acessível.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="usuario.html" role="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Novo Usuário</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    
+  </body>
+</html>

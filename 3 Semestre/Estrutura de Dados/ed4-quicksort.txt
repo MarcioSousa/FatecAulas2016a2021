@@ -1,0 +1,46 @@
+Ordenação
+ ->Metodos avancados
+  ->metodo rapido (quicksort)
+Procedimento QuickSort(x[], inivec, fimvec)
+	var i, j, pivo, aux : inteiro
+	inicio
+		i <- inivec
+		j <- fimvec
+		pivo <- x[(inivec+fimvec)/2]
+		enquanto(i<j)
+		inicio
+			enquanto(x[i] < pivo)
+				i <- i + 1
+			fimenquanto
+			enquanto(x[j] > pivo)
+				j <- j - 1
+			fimenquanto
+			se(i <= j) entao
+				aux <- x[i]
+				x[i] <- x[j]
+				x[j] <- aux
+				i <- i+1
+				j <- j-1
+			fimse
+		fimenquanto
+		se(j > inivec) entao
+			quicksort(i,inivec,j)
+		fimse
+		se(i < fimvec) entao
+			quicksort(x,i,fimvec)
+		fimse
+	fim
+fimprocedimento
+		
+pior desempenho no ultimo caso, mas melhor desempenho doq os outros, o mais eficiente, n.log2n
+serve para ordenar em disco ou nao
+
+ideia inicial eh comecar pelo mediana, elemento na posicao central (caso vetor possua tamanho impar, ele trunca, 2.5 vira 2)
+entao ele pega os valores que sao menores doq ele para a esquerda e os maiores que ele e joga pra direita
+apos isso, ele trabalha com vetores menores, fazendo menos comparacoes, diferente dos outros algoritmos
+
+o enrosco dele eh a recursividade
+
+a operacao critica é a comparacao que leva a troca
+
+ideia: pegar gif do wikipedia, abrir no photoshop, analisar

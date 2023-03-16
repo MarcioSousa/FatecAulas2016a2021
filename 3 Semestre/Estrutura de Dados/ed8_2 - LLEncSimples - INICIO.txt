@@ -1,0 +1,102 @@
+//Alt+999 para caracteres
+
+Listas Lineares
+
+-> Conjunto de Elementos organizados segundo um critério. Geralmente, esse critério baseia-se na contiguidade de um elemento em relação ao próximo elemento e ao elemento anterior.
+
+-> Se L é uma lista linera os elementos da lista sao {l0, l1, l2, l3, ... ln-1}
+
+Onde
+* Lm é um elemento da lista precedido por Lm+1 e antecedido por lm-1
+* A principal característica de uma lista é a sequencialidade de seus elementos.
+
+Propriedade
+- L={} ou L = <zero cortado>, a lista está vazia
+- <E ao contrairo cortado > Lm-1 para um elemento lm, lm é o primeiro elemento da lista
+- <E ao contrario cortado, inexistencia> Lm+1 para um elemento lm, lm é o último da lista
+- <inexistencia> lm-1 e <inexistencia> lm+1 para um elemento lm, L somente contém o elemento lm, isto é, L ={l0} para m=0
+- <existencia> lm-1 e <existencia> lm, então n-1 é o tamanho da lista linear.
+
+-> Criação de Listas
+* Listas Lineares são riadas em linguagens de programação:
+- por contiguidade física (alocação estática) - vetores
+- por encadeamento (alocação dinâmica)
+
+
+/*
+vetor é uma lista linear, porque ordena/organiza seus elementos desta forma
+vetor n eh exatamente uma lista, lista eh o List do Java, mas nao eh linear
+acesso sequencial, inicio ou fim, evoluindo ou involuindo, elementos possuem sucessores e antecessores
+
+devemos fazer consistencias na hora de operar em uma lista, como verificar se a lista é vazia na hora de remover um elemento
+
+disciplina de acesso é oq caracteriza uma lista
+
+projeto espacial de uma lista, notacoes, principalmente para encadeadas:
+encadeamento - elemento ligado a outro, sucessor ligado a antecessor
+
+*/
+
+-> Representações (Gráfica)
+-->elementos
+--->Nó(Nodo) = Elemento
+---->|Dado|Ponteiro|
+--->Apontador
+---->| |Ponteiro| -> encadeamento
+--->Cabeça (head)
+---->|Ponteiro| -> | | | Primeiro elemento
+--->Cauda (tail)
+---->| | | <- |Ponteiro| Ultimo elemento, não ultima posicao da lista
+
+-> Tipos de Listas
+	Encadeamento
+		Lineares
+			Simples
+			Duplas
+	Disciplina de Acesso
+		Lineares
+		Circulares (o fim liga ao inicio, cauda obrigatoria)
+
+-> Representação
+	Contiguidade Física (lista diminui, mas espaço n) (aqui remaneja conteudo)
+	 0	  n-1
+	| | | | | | |
+	head |<zero cortado>|
+	tail |m-1|, para m=indice ultimo elemento
+
+	Encadeamento (simples) (lista e espaço diminui) (aqui remove elemento da memoria)
+	cabeça aponta para d1, apontador d1 aponta d2, apontador d2 aponta dn-1, apontador dn-1 nulo
+
+	Encadeamento (duplo)
+	head aponta d1, apontador antecessor d1 nulo, apontador d1 sucessor aponta d1, apontador antecessor d2 aponta d1... apontador n-1 sucessor nulo
+
+-> Criação da lista      \
+-> Inicialização da lista -> únicas algumas vezes
+
+-> inserção
+	inicio
+	fim
+	meio (entre inicio e fim/primeiro e ultimo)
+
+-> remoção
+	inicio
+	final
+	meio
+
+-> destruição (principalmente dinamicamente, com new)
+	
+
+/*ponteiro em java/c# eh referencia, implicito, diferente do C
+
+garbage colector, c# bem otimizado, atribuiu nulo eh limpo
+em C, n eh liberado até o delete
+em Java agora tah melhorzin
+*/
+
+-> pesquisa
+
+-> ordenacao
+	algoritmo ordenacao (bubble e selection(pq sao sequenciais), insertion para listas duplas) //vetor permite acesso aleatorio, lista nao
+	
+
+//prova provavel depois que acabar listas

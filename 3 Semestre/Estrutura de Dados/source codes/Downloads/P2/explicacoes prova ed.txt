@@ -1,0 +1,25 @@
+pilha ou filas
+a partir das implementacoes dadas
+dentro de cada arquivo
+
+todos exercicios sao resolvidos com pilhas ou filas + algumas de apoio
+
+talvez precisemos mudar o INFO, como caracteres
+
+temos ateh as 17hrs para terminar
+
+divulga as notas hj/amanha
+
+P3 para quem n atingir 6, 6 nota maxima para quem faz P3
+
+Faça as adaptações no código para atender os requisitos da solução dos exercícios
+fa�a as adaptacoes no codigo para atender os requisitos da solucao dos exercicios
+
+aprender a comparar por tabela ASCII, bem mais facil
+
+{'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}; //26
+
+2 e 3 - guarda pnult e verifica se ult eh 0
+
+
+entregar solucoes > preenche tudo, seleciona multiplos arquivos, envia

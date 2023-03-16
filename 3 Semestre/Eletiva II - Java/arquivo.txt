@@ -1,0 +1,2 @@
+ASSOCIATIVA
+Definir quais objetos que compõem o seu projeto.

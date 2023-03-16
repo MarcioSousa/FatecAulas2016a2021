@@ -1,0 +1,26 @@
+Grupos do Trabalho
+
+01 - André e Márcio         (avaliam o 03-Guilherme e Ricardo)
+     * ícone central para voltar ao início
+     * inserir um wizard no cadastro do cliente
+     * traduzir o combo other adress e o botão edit
+     * inserir botão de busca para o CEP
+     * permitir finalizar a venda pelo telefone       
+
+02 - Fernando e Murilo    (avaliam o 01-André e Márcio)
+     * Criar categorias (ex: bebidas, sobremesas)
+     * Melhorar as cores da interface
+       Verificar sugestões de paletas em https://color.adobe.com/
+     * Exibir mensagem quando o usuário confirmar o pedido
+     * ícone central para voltar ao início
+     * Melhorar a possibilidade de efetuar o cancelamento do pedido
+     * Pensar em como fidelizar o cliente
+
+03 - Guilherme e Ricardo (avaliam o 02-Fernando e Murilo)
+     * Inserir um wizard no cadastro do cliente
+     * Inserir uma barra de progresso no cadastro
+     * Permitir a responsabilidade das imagens (ou clicar e aumentar o zoom)
+     * Permitir integração com a geolocalização
+     * Falta criar a interface do checkout
+
+04 - Bruno                        (professor avaliará)

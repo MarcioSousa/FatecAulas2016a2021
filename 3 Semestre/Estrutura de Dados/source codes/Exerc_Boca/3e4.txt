@@ -1,0 +1,5 @@
+quantidade de entradas
+quantidade de numeros a partir de 0, inclusive
+
+qtd de numeros/entradas, igual o 3
+para cada entrada, verificar se eh um numero primo, divisivel por ele e por 1

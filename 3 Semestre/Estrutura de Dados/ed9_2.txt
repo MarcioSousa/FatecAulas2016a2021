@@ -1,0 +1,146 @@
+Inserções em Listas Lineares Simples
+
+-> No início (da lista, entre Head e 1º elemento)
+	*Situações
+		Lista vazia
+		Lista com pelo menos um elemento
+	
+	1º (Lista vazia)
+	(#100)Head[/] (#200)10[/] <- (#300)aux[/] //aux eh o [/] do (#300) que guarda 10
+	(#100)Head[#200] -> (#200)10[/]
+	
+	2º (Lista com pelo menos um elemento)
+	(#100)Head[#200] -> (#200)10[/]
+	(#100)Head[#200] -> (#200)10[/]    (#300)20[/] <- (#400)[300]
+	(#100)[#300] -> (#300)20[#200] -> (#200)10[/]
+	
+InserirInicioLLEncSimples(LL : ^NODO, info : INFO)
+	aux: ^NODO
+	alocar(aux)
+	aux->info <- info
+	aux->prox <- LL
+	LL <- aux
+Fim_InserirInicioLLEncSimples
+-Implementação
+void InserirInicioLLEncSimples(NODO ** LL, INFO info)
+{
+	NODO * aux;
+	aux = new NODO;
+	aux->info = info;
+	aux->prox = **LL;
+	*LL = aux;
+}
+
+Implementação com Head e Tail
+InserirInicioLLEncSimples(Head: ^NODO, Tail: ^NODO, info: INFO)
+	aux: ^NODO
+	alocar(aux)
+	aux->info <- info
+	aux->prox <- head
+	SE (LL = NULO) ENTÃO
+		Tail <- aux
+	Fim-SE
+
+Implementacao alternativa
+InserirInicioLLEncSimples3(NODO ** Head, NODO ** Tail, INFO info)
+{
+	NODO * aux = *Head; //cria copia do head para aux, que apontara para prox
+	InserirInicioLLEncSimples(&Head,info)
+	if(aux == NULL){
+		*Tail = *Head;
+	}
+}
+Implementacao em C
+void InserirInicioLLEncSimples2(NODO **Head, NODO **Tail, INFO info)
+{
+	NODO * aux;
+	aux = new NODO;
+	aux->info = info;
+	aux->prox = *Head;
+	if(Head == NULL){//se a lista era vazia, elemento eh head e tail
+		*Tail = aux;
+	}
+	*Head = aux;
+}
+
+/*
+void main(void){
+	NODO * Tail;
+	NODO * Head;
+	InicializarLLEncSimples(&Head);
+	Tail = Head; //soh um elemento, cabeça e cauda apontam para ele
+	InserirInicioLLEnc2(&Head,&Tail,10);
+}
+*/
+
+-Inserir no final da Lista Linear Simples sem cauda
+
+InserirFinalLLEncSimples1(LL : ^NODO, info : INFO)
+	aux: ^NODO;
+	tail :^NODO;
+	tail <- LL;
+	Enquanto tail->orox != NULO E Tail != NULO faça //acha ultimo elemento
+		tail <- tail->prox;
+	Fim-Enquanto
+	alocar(aux)
+	aux->info <- info
+	aux->prox <- NULO
+	SE tail = NULO Entao
+		LL <- aux
+	SENAO
+		tail->prox <- aux
+	Fim-SE
+Fim_InserirFinalLLEncSimples1
+Implementacao
+void InserirFinalLLEncSimples1(NODO * LL, INFO info)
+{
+	NODO * aux;
+	NODO * tail;
+	tail = * LL;
+	while(tail != NULL && tail->prox != NULL){
+		tail = tail->prox;
+	}
+	aux = new NODO;
+	aux->info = info;
+	aux->prox = NULL;
+	if(tail == NULL){
+		tail = aux;
+	}
+	else{
+		tail->prox = aux;
+	}
+}
+
+-Inserções no Final de LLEncSimples com cauda //passado dia 11/10
+
+InserirFinalLLEncSimples2(Head:^NODO, Tail:^NODO, info:INFO) //tempo mesmo qql tamanho
+	aux:^NODO
+	alocar(aux)
+	aux->info <- info
+	aux->prox <- NULO
+	SE Tail = NULO ENTÂO //lista vazia, cabeça e cauda apontam para elemento
+		Head <- aux
+		Tail <- aux
+	SENÂO
+		Tail->prox <- aux
+	Fim-SE
+Fim-InserirFinalLLEncSimples2
+Implementacao
+void InserirFinalLLEncSimples2(NODO **Head, NODO **Tail, INFO info){
+	NODO * aux = new NODO;
+	aux->info = info;
+	aux->prox = NULL;
+	if(*Tail==NULL){
+		*Head = aux;
+		*Tail = aux;
+	}
+	else{
+		(*Tail)->prox = aux;
+		*Tail = aux;
+	}
+}
+
+/*
+Head(#100)#200 -> (#200)10[#300] -> (#300)20[#400] -> (#400)30[/] <- Tail(500)#400
+
+*/
