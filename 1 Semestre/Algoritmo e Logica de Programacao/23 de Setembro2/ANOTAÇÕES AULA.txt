@@ -1,0 +1,34 @@
+ALGORITMO QUADRADO_NUM
+
+INTEIRO: NUM, QUADRADO;
+
+INICIO
+   LEIA(NUM);
+   QUADRADO <- NUM * NUM;
+   ESCREVA(QUADRADO);
+FIM
+
+                        INCLUIR BIBLIOTECA #INCLUDE <MATH.H> //BIBLIOTECA PARA USAR FUNÇÕES MATEMÁTICAS, COMO O POW() 
+                        POW(VARIÁVEL, POTÊNCIA)
+                                      2, QUADRADO
+                                      3, CUBO
+
+FUNÇÃO <LOCALE.H> //BIBLITECA NECESSÁRIA PARA USAR O SETLOCALE()
+SETLOCALE(LC_ALL,"PORTUGUESE"); //INSTRUÇÃO USADA PARA CONFIGURAR O IDIOMA PORTUGUÊS.
+
+ll = ou
+&& = e
+== = for igual(comparação)
+=  = atribui um valor
+
+POWER POINT ALOG_05
+INICIO
+   LEIA(VR.COMPRA);
+   
+   SE(VR.COMPRA <= 100) ENTÃO
+      DESC <- 5;
+   SENÃO
+      SE(VR.COMPRA < 200) ENTÃO
+         DESC <- 10;
+      SENÃO
+         DESC<-20;
