@@ -1,0 +1,5 @@
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Dto\bin\Debug\Dto.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Dto\bin\Debug\Dto.pdb
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Dto\obj\Debug\Dto.csprojResolveAssemblyReference.cache
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Dto\obj\Debug\Dto.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Dto\obj\Debug\Dto.pdb

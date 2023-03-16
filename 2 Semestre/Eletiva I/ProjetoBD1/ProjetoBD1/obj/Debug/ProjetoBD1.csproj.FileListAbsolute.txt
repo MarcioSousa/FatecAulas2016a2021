@@ -1,0 +1,11 @@
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\ProjetoBD1.exe.config
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\obj\Debug\ProjetoBD1.csprojResolveAssemblyReference.cache
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\obj\Debug\ProjetoBD1.frm_Cadastro.resources
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\obj\Debug\ProjetoBD1.Properties.Resources.resources
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\obj\Debug\ProjetoBD1.csproj.GenerateResource.Cache
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\Empresa.mdf
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\Empresa_log.ldf
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\obj\Debug\ProjetoBD1.exe
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\obj\Debug\ProjetoBD1.pdb
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\ProjetoBD1.exe
+C:\Users\Aluno - Gti-Ads\Desktop\ProjetoBD1\ProjetoBD1\ProjetoBD1.pdb

@@ -1,0 +1,59 @@
+Menu
+1) Cadastrar contato.
+2) Exibir contatos.
+3) Apagar.
+4) Sair.
+
+Cliente
+Produto
+Venda
+
+Menu Principal
+1) Cliente.
+2) Produto.
+3) Venda.
+4) Sair
+
+Menu Cliente
+1) Cadastrar
+2) Exibir
+3) Apagar
+4) Salvar
+5) Alterar
+6) Voltar
+
+Menu Produto
+1) Cadastrar
+2) Exibir
+3) Apagar
+4) Salvar
+5) Alterar
+6) Voltar
+
+Menu Venda
+1) Cadastrar
+2) Exibir
+3) Apagar
+4) Salvar
+5) Alterar
+6) Voltar
+
+CLientes
+Nome
+Roberto
+Rafaela
+Manuel
+Marcio
+
+Informe o nome do Comprador listado acima:
+Marcio
+
+Produtos
+Veja
+Calça
+Hd 500
+Telefone
+Chip Celular
+
+Qual:
+Telefone:

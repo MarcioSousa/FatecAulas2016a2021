@@ -1,0 +1,9 @@
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\bin\Debug\ProjetoArquivo.exe.config
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\bin\Debug\ProjetoArquivo.exe
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\bin\Debug\ProjetoArquivo.pdb
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\obj\Debug\ProjetoArquivo.csprojResolveAssemblyReference.cache
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\obj\Debug\ProjetoArquivo.Form1.resources
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\obj\Debug\ProjetoArquivo.Properties.Resources.resources
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\obj\Debug\ProjetoArquivo.csproj.GenerateResource.Cache
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\obj\Debug\ProjetoArquivo.exe
+c:\users\aluno - gti-ads\documents\visual studio 2015\Projects\ProjetoArquivo\ProjetoArquivo\obj\Debug\ProjetoArquivo.pdb

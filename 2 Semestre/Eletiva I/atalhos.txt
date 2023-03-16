@@ -1,0 +1,3 @@
+http://www.andrealveslima.com.br/blog/index.php/2015/08/26/calculando-a-distancia-entre-dois-pontos-utilizando-google-maps-e-c/
+https://www.google.com.br/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=google+maps+c%23+quilometragem
+https://www.google.com.br/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=microsoft+maps+api+c%23

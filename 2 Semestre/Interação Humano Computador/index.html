@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Exemplo de TTS - Text to Speech</title>
+	<!-- CSS do Bootstrap -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Ícones do Material Design -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
+</head>
+<body>
+
+    <div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="jumbotron" id="inicio">
+					<h1 class="display-4">Exemplo de TTS - Texto para Voz!</h1>
+					<p class="lead">Exemplo de uso da API de conversão de texto em voz.</p>  
+					<button onclick="ouvir('inicio')" class="btn btn-sm btn-dark"><i class="material-icons align-middle">&#xE0B7;</i></button>
+				</div>
+			</div>
+		</div>
+		<div class="row d-none" id="semSuporte">
+			<div class="col-md-6">
+				<div class="alert alert-danger" role="alert">
+						<i class="material-icons">report_problem</i> O seu navegador <strong>não tem</strong> suporte a API de voz! <i class="material-icons">mood_bad</i>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="formTTS">
+			<div class="col-md-6">
+			<form name="form-tts" method="post">
+			  <div class="form-group">
+				<label for="textoOriginal">Texto a ser convertido:</label>
+				<input type="text" class="form-control" id="textoOriginal" placeholder="Informe o texto a ser convertido em voz" title="Informe o texto que deverá ser convertido em voz">
+			  </div>  
+			  <button onclick="falar('textoOriginal')" class="btn btn-lg btn-outline-success"><i class="material-icons align-middle">chat</i> Ouvir</button>
+			</form>
+			</div>
+		</div>		
+	</div>
+
+    <script type="text/javascript">
+	 // Testar se o navegador possui suporte à API
+      window.SpeechRecognition = window.SpeechRecognition       ||
+                                 window.webkitSpeechRecognition ||
+                                 null;
+ 
+		//caso não suporte a API DE VOZ                              
+		if (window.SpeechRecognition === null) {
+	    	document.getElementById('semSuporte').classList.remove('d-none');
+			document.getElementById('formTTS').classList.add('d-none');
+			console.error("Navegador não tem suporte à API TTS");
+        }else {
+		      console.info("Navegador possui suporte à API TTS!");
+		}	  
+    
+		var idioma = window.navigator.userLanguage || window.navigator.language;
+	
+	   /* Função para falar o texto de um campo */ 
+	
+        function falar(idParagrafo) {		
+			texto = document.getElementById(idParagrafo).value;		
+			if (texto == null || texto =='') {texto = "O campo estava vazio"};
+            var msg = new SpeechSynthesisUtterance();
+			var voices = window.speechSynthesis.getVoices();
+			msg.text = texto;
+			msg.lang = idioma;
+			speechSynthesis.speak(msg);
+        }
+		function ouvir(idParagrafo) {		
+			texto = document.getElementById(idParagrafo).innerHTML;		
+            var msg = new SpeechSynthesisUtterance();
+			var voices = window.speechSynthesis.getVoices();
+			msg.text = texto;
+			msg.lang = idioma;
+			speechSynthesis.speak(msg);
+        }
+    </script>
+</body>
+</html>
+
+
+
+            
+        
+                 

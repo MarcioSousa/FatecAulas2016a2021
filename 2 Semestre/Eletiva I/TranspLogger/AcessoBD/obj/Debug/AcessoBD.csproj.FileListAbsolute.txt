@@ -1,0 +1,6 @@
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\AcessoBD\bin\Debug\AcessoBD.dll.config
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\AcessoBD\bin\Debug\AcessoBD.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\AcessoBD\bin\Debug\AcessoBD.pdb
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\AcessoBD\obj\Debug\AcessoBD.csprojResolveAssemblyReference.cache
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\AcessoBD\obj\Debug\AcessoBD.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\AcessoBD\obj\Debug\AcessoBD.pdb

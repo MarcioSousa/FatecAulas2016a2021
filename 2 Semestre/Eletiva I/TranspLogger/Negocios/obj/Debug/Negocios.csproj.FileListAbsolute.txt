@@ -1,0 +1,9 @@
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\bin\Debug\Negocios.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\bin\Debug\Negocios.pdb
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\obj\Debug\Negocios.csprojResolveAssemblyReference.cache
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\obj\Debug\Negocios.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\obj\Debug\Negocios.pdb
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\bin\Debug\AcessoBD.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\bin\Debug\Dto.dll
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\bin\Debug\AcessoBD.pdb
+C:\Users\marci\Documents\Visual Studio 2015\Projects\TranspLogger\Negocios\bin\Debug\Dto.pdb
