@@ -1,0 +1,143 @@
+<div ng-include src="'views/menu.html'"></div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- coluna do formulario -->
+        <div class="col-md-6">
+            <!-- criacao do painel do formulario -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4><i class="glyphicon glyphicon-credit-card"></i> Cadastro de Produtos</h4>
+                </div>
+                <div class="panel-body">
+                    <!-- formulario criado através do site http://bootsnipp.com/forms -->
+                    <form name="formProduto" class="form-horizontal" ng-submit="salvaProduto(produto); limpaProduto(formProduto)">
+                        <fieldset>
+                            <!-- titulo do formulario -->
+                            <legend>Formulário de Produtos</legend>
+                            <!-- Exemplo de Caixa de Texto -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="codigo">Código:</label>
+                                <div class="col-md-4">
+                                    <input id="codigo" name="codigo" type="text" readonly placeholder="Gerado automaticamente" ng-model="produto.codigo" class="form-control input-md" value="{{produto.codigo}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="nome">Nome:</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="nome" name="nome" placeholder="Nome do Produto" class="form-control" ng-model="produto.nome" required ng-minlength="3" ng-maxlength="30">
+                                    <div ng-class="{'alert alert-danger': formProduto.nome.$invalid}" ng-messages="formProduto.nome.$error" ng-if="formProduto.nome.$touched">
+                                        <!-- somente mostraremos o erro se o campo foi 'tocado' -->
+                                        <p ng-message="minlength">O nome do produto é muito curto</p>
+                                        <p ng-message="maxlength">O nome do produto é muito longo</p>
+                                        <p ng-message="required">O nome do produto é obrigatório.</p>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="nome">Fabricação:</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="fabricacao" name="fabricacao" placeholder="Empresa de Fabricação" class="form-control" ng-model="produto.fabricacao" ng-maxlength="30">
+                                    <div ng-class="{'alert alert-danger': formProduto.fabricacao.$invalid}" ng-messages="formProduto.fabricacao.$error" ng-if="formProduto.fabricacao.$touched">
+                                        <!-- somente mostraremos o erro se o campo foi 'tocado' -->
+                                        <p ng-message="minlength">O nome da fabricante do produto é muito curto</p>
+                                        <p ng-message="maxlength">O nome da fabricante do produto é muito longo</p>
+                                    </div>
+                                </div>
+                            </div>    
+                            <!--Preço-->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="valor">Preço</label>
+                                <div class="col-md-6">
+                                    <input type="number" id="valor" name="valor" placeholder="Valor de Venda do Produto"  step="0.01" ng-model="produto.valor" required ng-min="0.01" class="form-control">
+                                </div>
+                            </div>
+                            <div class="well">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"></label>
+                                    <div class="col-md-8">
+                                        <button id="salvar" class="btn btn-success" type="submit" title="Salvar" data-ng-disabled="formProduto.$invalid"><i class="glyphicon glyphicon-save"></i>&nbsp;Salvar</button>                                
+                                        
+                                        <a href="" class="btn btn-danger" ng-click="limpaArrayProduto(); menu()" title="Cancelar"><span class="glyphicon glyphicon-share-alt"></span> Cancelar</a>
+                                        <div ng-messages='requisicaoServidor'>
+                                            <div ng-message='aguarde' class="text-info">Por favor, aguarde...<img src="img/aguarde.gif"></div>
+                                        </div>                
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <h4>Campos marcados com * são de preenchimento obrigatório!</h4>
+                </div>
+            </div>
+        </div> 
+
+        <!-- coluna do form -->
+        <div class="col-md-6">
+            <!-- caixa de Pesquisa (somente é exibida quando há algum registro no array) -->
+            <div ng-show="produtos.length !== 0">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-search"></i></span>
+                    <input type="text"  ng-model="filterProduto"
+                           class="form-control input-lg" placeholder="Procurar...">
+                </div>
+            </div> 
+            <!-- fim da caixa de pesquisa -->
+
+            <!-- tabela com os dados. Ao inicializar, carrega os dados no array -->
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h4><span class="glyphicon glyphicon-th-list"></span> Listagem de Produtos</h4></div>
+                <div class="panel-body">                    
+                    <div class="table-responsive">             
+                        <table class="table table-hover table-bordered" ng-init="carregaProdutos();" ng-show="produtos.length > 0">
+                            <tr>
+                                <th class="col-md-2">Código</th>
+                                <th>Nome</th>
+                                <th class="col-md-2">Preço</th>
+                                <th colspan="2">Opções</th>
+                            </tr>
+                            <!-- utilizando a paginacao -->
+                            <tr dir-paginate="produto in produtos | filter:filterProduto |
+                                itemsPerPage: pageSize" current-page="currentPage" 
+                                pagination-codigo="produtosPagination">   
+                                <td>{{produto.codigo}}</td>
+                                <td>{{produto.nome}}</td>
+                                <td>{{produto.valor}}</td>  
+                                <td class="col-md-1">
+                                    <button type="button" ng-click="obterProdutoPeloId(produto)" class="btn btn-info" 
+                                            title="Editar o registro corrente"><i class="glyphicon glyphicon-edit"></i><small>Editar</small>                                    
+                                    </button>  
+                                </td>
+                                <td class="col-md-1">                                          
+                                    <button type="button" class="btn btn-danger"  ng-click="confirmaExclusaoProduto(produto)">
+
+                                        <i class="glyphicon glyphicon-trash"></i><small>Excluir</small>
+                                    </button>  
+                                </td>                                
+                            </tr>                            
+                        </table>                
+                    </div>
+                </div><div class="panel-footer" ng-show="produtos.length > 0">
+                    <span class="badge pull-right">Total de Registros: {{(produtos|filter:filterProduto).length}} de {{produtos.length}}</span> 
+                </div>
+                <!-- Alerta quando não existem registros -->
+                <div class="alert alert-info"
+                     ng-show="produtos.length === 0">
+                    <p class="text-info">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Ainda não há nenhum registro cadastrado.
+                    </p>
+                </div> 
+                <!-- paginacao -->
+                <div class="text-center">
+                    <dir-pagination-controls boundary-links="true"
+                                             pagination-codigo="produtosPagination" 
+                                             on-page-change="pageChangeHandler(newPageNumber)"
+                                             template-url="views/paginacao.html"></dir-pagination-controls>
+                </div>
+                <!-- fim do alerta --> 
+            </div>
+        </div>
+    </div>
+</div>

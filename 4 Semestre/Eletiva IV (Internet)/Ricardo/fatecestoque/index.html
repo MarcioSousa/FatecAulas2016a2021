@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Estoque</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- carregando o jQuery -->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <!-- carregando o Bootstrap via CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- carregando o BootstrapDialog via CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.4/css/bootstrap-dialog.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.4/js/bootstrap-dialog.min.js"></script>
+        <!-- definindo o ícone que irá aparecer na aba -->
+        <link rel="icon" type="image/ico" href="estoque.ico">
+        <!-- carregando o AngularJs via CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+        <!-- carregando o projeto em AngularJs -->
+        <script src="js/estoque.js"></script>
+    </head>
+   <body ng-app="estoqueApp" ng-controller="estoqueController">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"><!--formulario-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4>Cadastro de Grupos</h4>
+                        </div>
+                        <div class="panel-body">
+<form name="formGrupo" class="form-horizontal" 
+      ng-submit="salvaGrupo(grupo)">
+    <div class="form-group">
+<label class="col-md-2 control-label" for="id">Código</label>
+<div class="col-md-6">
+    <input type="text" id="id" name="id" 
+           class="form-control input-md" readonly
+           placeholder="Gerado Automaticamente"
+           ng-model="grupo.id" />
+</div>
+    </div>
+    
+    <div class="form-group">
+<label class="col-md-2 control-label" for="nome">Nome:</label>
+<div class="col-md-8">
+    <input type="text" id="nome" name="nome"
+           class="form-control input-md" ng-model="grupo.nome"
+           placeholder="Nome do Grupo" required
+           title="Informe o nome ou descrição do grupo" />
+</div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-md-2"></div>
+        <button id="salvar" name="salvar" 
+                class="btn btn-success" type="submit"
+                title="Salva os dados do registro"
+            ng-disabled="formGrupo.$invalid">
+<span class="glyphicon glyphicon-save"></span> Salvar                   
+        </button>
+        
+        <button id="novo" name="novo" 
+                class="btn btn-primary" type="button"
+                title="Novo registro"
+                ng-click="grupo={}">
+<span class="glyphicon glyphicon-refresh"></span> Novo                   
+        </button>
+        
+        
+    </div>
+        
+                                
+                            </form>
+                            
+                        </div>
+                        <div class="panel-footer">
+<p>Campos marcados com * são de preenchimento obrigatório</p>                            
+                        </div>
+                    </div>    
+                </div>
+                
+                
+                
+                
+                <div class="col-md-6"><!--tabela-->
+                    <div ng-show="grupos.length !== 0">
+                        <div class="input-group">
+<span class="input-group-addon" id="filtroGrupo">
+    <i class="glyphicon glyphicon-search"></i>                                
+</span> 
+<input type="text" ng-model="filtraGrupo" 
+       class="form-control input-lg" 
+       placeholder="Procurar..." />                            
+                        </div>
+                    </div>
+                    <!--fim da caixa de pesquisa-->
+                    
+                    <table class="table table-bordered" ng-init="carregaGrupos()">
+                        <caption>Dados dos Grupos</caption>
+                        <tr class="success">
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th colspan="2">Opções</th>
+                        </tr>
+<tr ng-repeat="g in grupos | filter:filtraGrupo">
+                            <td>{{g.id}}</td>
+                            <td>{{g.nome}}</td>
+                            
+                            <td>
+<button type="button" class="btn btn-sm btn-info"
+        ng-click="obtemGrupoPeloId(g)"
+        title="Editar o registro corrente">
+<span class="glyphicon glyphicon-edit"></span> Editar            
+</button>
+                            </td>
+                            <td>
+<button type="button" class="btn btn-sm btn-danger"
+        ng-click="confirmaExclusaoGrupo(g)"
+        title="Apaga o registro corrente">
+<span class="glyphicon glyphicon-trash"></span> Apagar            
+</button>                                
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

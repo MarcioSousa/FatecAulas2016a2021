@@ -1,0 +1,10 @@
+/* Css do Projeto 
+    Created on : 14/03/2018, 15:09:05
+    Author     : Marcio Sousa - Gti-Ads
+*/
+/* Criando uma classe CSS*/
+.finalizado{
+    text-decoration: line-through; /*Traço*/
+    color: gray;
+    background: #CCCCCC; /*Cinza Claro*/
+}

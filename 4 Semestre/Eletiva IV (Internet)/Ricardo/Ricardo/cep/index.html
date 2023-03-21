@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="cepApp" lang="pt-BR">
+
+  <head>
+    <title>App do CEP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="cepController">
+      <div class="container">
+          <div class="jumbotron">
+            <h1>Fatec Itu - CEP</h1>
+            <p>Consulte o CEP de qualquer cidade do Brasil!</p>
+            <p>Tecnologia: AngularJS e a API ViaCEP </p>
+          </div>
+
+      <h3 class="text-primary">Informe o cep desejado</h3>
+      <form>
+      <div class="form-group">
+        <input class="form-control" type="text" ng-model="cep" placeholder="ex: 13312320" pattern="[0-9]{8}" maxlength="8"/>
+      </div>
+      <a href="" ng-click="buscaCep(cep)" class="btn btn-success" ng-disabled="!cep"><span class="glyphicon glyphicon-search"></span> Procurar CEP</a>
+      <a href="" ng-click="cep = ''" class="btn btn-danger"> <span class="glyphicon glyphicon-remove"> </span> Limpar</a>
+    </form>
+          <div class="alert alert-success" ng-show="aguarde"> <p class="text-danger"><img src="spinner-mini.gif">Aguarde, enquanto estamos obtendo os dados...</p></div>
+
+    <div id="dados" ng-show="cep">
+      {{dados}}
+      </div>
+  </body>
+
+</html>

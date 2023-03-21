@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trabalho Fatec</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		.corVerde{
+			background-color: green;
+		}
+		.corAmarelo{
+			background-color: yellow;
+		}
+		.corVermelho{
+			background-color: red;
+		}
+	</style>
+	<script>
+		var cor = 3;
+		var obj = document.getElementById('corfundo');
+		function mudaSemaforo(){
+			if(cor == 3){
+				arquivo = "cores/amarelo.jpg";
+				document.getElementById("semaforo").src = arquivo;
+				cor = 2;
+				obj.className='corAmarelo';
+				// alert("Amarelo");
+				return;
+			}
+			if(cor == 2){
+				arquivo = "cores/vermelho.jpg";
+				document.getElementById("semaforo").src = arquivo;
+				cor = 1;
+				obj.className='corVermelho';
+				// alert("vermelho");
+				return;
+			}
+			if(cor == 1){
+				arquivo = "cores/verde.jpg";
+				document.getElementById("semaforo").src = arquivo;
+				cor = 3;
+				obj.className='corVerde';
+				// alert("verde");
+				return;
+			}
+		}
+	</script>
+</head>
+<body id="corfundo" class="corVerde">
+	<h1>Semáforo</h1>
+	<p>Trabalho de Semáforo</p>
+	<img src="cores/verde.jpg" width="208" height="460" id="semaforo"></p>
+	<button onclick="mudaSemaforo()">Mudar</button>
+</body>
+</html>

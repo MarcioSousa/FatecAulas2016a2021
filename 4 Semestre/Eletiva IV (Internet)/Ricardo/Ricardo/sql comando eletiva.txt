@@ -1,0 +1,11 @@
+CREATE TABLE usuarios(
+    id int(11) NOT NULL AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    login varchar(20) NOT NULL,
+    foto longtext,
+    situacao tinyint(1) NOT NULL DEFAULT '1',
+    tipo varchar(13) NOT NULL DEFAULT 'Administrador',
+    senha varchar(100) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY login(login)
+)

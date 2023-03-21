@@ -1,0 +1,109 @@
+<div ng-include src="'views/menu.html'"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12"><!-- coluna do form -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Cadastro de Produtos
+                </div>
+                <div class="panel-body">
+                    <!--formulario-->
+                    <form name="formProduto" class="form-horizontal" ng-submit="salvaProduto(produto);limpaProduto(formProduto)">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="id">
+                                Código:
+                            </label>
+                            <div class="col-md-2">
+                                <input id="id" name="id" type="text" readonly placeholder="Automático" ng-model="produto.id" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="codigobarra">
+                                Código de Barra:
+                            </label>
+                            <div class="col-md-4">
+                                <input id="codigobarra" name="codigobarra" type="text" class="form-control" placeholder="999999.999999-9" ng-model="produto.codigobarra" mask="999999.999999-9" pattern="[0-9]{6}[.][0-9]{6}[-][0-9]" ng-minlength="15" ng-maxlength="15" required>
+                                <div ng-class="{'alert alert-danger': formProduto.codigobarra.$invalid}" ng-messages="formProduto.codigobarra.$error" ng-if="formProduto.codigobarra.$touched">
+                                    <!-- somente mostraremos o erro se o campo foi 'tocado' -->
+                                    <p ng-message="pattern">O código de barras deve seguir o padrão 9999.9999-9</p>
+                                    <p ng-message="minlength">O código de barras é muito curto</p>
+                                    <p ng-message="maxlength">O código de barras é muito longo</p>
+                                    <p ng-message="required">O código de barras é muito obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="nome">Nome:</label>
+                            <div class="col-md-6">
+                                <input type="text" id="nome" name="nome" placeholder="Nome do Produto" class="form-control" ng-model="produto.nome" required ng-minlength="3" ng-maxlength="50">
+                                <div ng-class="{'alert alert-danger': formProduto.nome.$invalid}" ng-messages="formProduto.nome.$error" ng-if="formProduto.nome.$touched">
+                                    <!-- somente mostraremos o erro se o campo foi 'tocado' -->
+                                    <p ng-message="minlength">O nome do produto é muito curto</p>
+                                    <p ng-message="maxlength">O nome do produto é muito longo</p>
+                                    <p ng-message="required">O nome do produto é obrigatório.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="produto.codigobarra && produto.nome">
+                            <label class="col-md-2 control-label">Qr Code:</label>
+                            <div class="col-md-4">
+                                <img src="http://chart.apis.google.com/chart?cht=qr&chl={{produto.codigobarra}}&chs=120x120" title="Qr Code do Produto {{produto.nome}}"/>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <label class="col-md-2 control-label" for="grupo">Grupo:</label>
+                            <div class="col-md-6">
+                                <select name="grupo" ng-model="produto.grupo" ng-init="carregaGrupos()" ng-options="grupo as grupo.nome disable when grupo.status == 0 for grupo in grupos track by grupo.id" class="form-control" requerid>
+                                    <option value="">Selecione...</option>
+                                </select>
+                                <div ng-class="{'alert alert-danger': formProduto.grupo.$invalid}" ng-messages="formProduto.grupo.$error" ng-if="formProduto.grupo.$touched">
+                                    <!-- somente mostraremos o erro se o campo foi 'tocado' -->
+                                    <p ng-message="required">O grupo do produto é obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="validade">Validade:</label>
+                            <div class="col-md-4">
+                                <input type="date" name="validade" id="validade" ng-model="produto.validade" class="form-control">
+                            </div>
+                        </div>
+                        <!--Preço-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="preco">Preço</label>
+                            <div class="col-md-4">
+                                <input type="number" id="preco" name="preco" step="0.01" ng-model="produto.preco" required ng-min="0.01" class="form-control">
+                            </div>
+                        </div>
+                        <!-- foto -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="foto">Foto</label>
+                            <div class="col-md-8">
+                                <input type="file" ng-model="produto.foto" id="fotoproduto" name="foto" accept="image/*" maxsize="1024" requierd base-sixty-four-input>
+                                <div ng-class="{'alert alert-danger': formProduto.foto.$invalid}" ng-messages="formProduto.foto.$error" ng-if="formProduto.foto.$touched">
+                                    <!-- somente mostraremos o erro se o campo foi 'tocado' -->
+                                    <p ng-show="formProduto.foto.$error.maxsize">O tamanho da foto é inválido! O arquivo pode ter no máximo 1Mb</p>
+                                    <p ng-show="formProduto.foto.$error.accept">O tipo de arquivo é inválido. São aceitas apenas imagens.</p>
+                                    <p ng-show="formProduto.foto.$error.required">É obrigatório selecionar uma imagem</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="produto.foto">
+                            <label class="col-md-2 control-label" for="fotoselecionada">Imagem Selecionada: </label>
+                            <div class="col-md-10">
+                                <img ng-src="data:image/jpeg;base64,{{produto.foto.base64}}" class="img-responsive" width="200"/>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"></label>
+                            <div class="col-md-8">{{produto.foto.base64}}
+                                <button id="salvar" class="btn btn-success" type="submit" title="Salvar" data-ng-disabled="formProduto.$invalid">Salvar</button>
+                                <a href="#/menu" class="btn btn-warning" title="Voltar">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     

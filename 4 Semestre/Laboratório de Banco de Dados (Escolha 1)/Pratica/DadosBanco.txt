@@ -1,0 +1,231 @@
+--
+--    Arquivo: DadosBanco.sql
+--
+--      Autor: Daniella
+--
+--       Data: 23/08/2011
+--
+-- Finalidade: Adicionar dados iniciais as tabelas referentes ao 
+--             Banco Simplificado
+--
+
+-- *
+-- * Povoando tabela AGENCIAS ...
+-- *
+
+INSERT INTO Agencias
+	VALUES ( '0040', 'Praca da Republica', 
+		 'Praca da Republica, 200', '555-4433') ;
+
+INSERT INTO Agencias
+	VALUES ( '0050', 'Centro', 
+		 'R 15 de Novembro, 800', '555-2211') ;
+
+INSERT INTO Agencias
+	VALUES ( '0060', 'Prefeitura', 
+		 'Av. Sao Paulo, 100', '555-6612') ;
+
+select * from clientes
+-- *
+-- * Povoando tabela CLIENTES ...
+-- *
+
+INSERT INTO Clientes
+	VALUES ( '00001', 'ANA JUNQUEIRA', 'R SALVADOR, 40',
+		 '3848-9388', 'F', '1980-01-10', '823.829.839-30', '1928288' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00002', 'JOAO DA SILVA', 'AV CAMPINAS, 89',
+		 '3434-9218', 'M', '1965-08-20', '214.244.321-46', '112128288' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00003', 'MAIRA FIGUEIREDO', 'R OLAVO BILAC, 430',
+		 '3238-2128', 'F', '1987-10-01', '523.343.983-22', '2328288' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00004', 'PEDRO SANTOS', 'R RUI BARBOSA, 230',
+		 '3238-9157', 'M', '1972-05-23', '282.121.299-88', '212221828' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00005', 'SILVIO PADILHA', 'R INCONFIDENTES, 20',
+		 '4348-3288', 'M', '1975-04-30', '123.434.839-11', '19221182288' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00006', 'ROBERTO ARRUDA', 'R BAHIA, 140',
+		 '4212-2228', 'M', '1942-03-27', '231.332.323-47', '1219282348' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00007', 'SILVANA FERREIRA', 'AV 7 DE SETEMBRO, 2740',
+		 '4838-2388', 'F', '1956-01-12', '283.238.232-93', '23233248288' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00008', 'CLAUDIA MARCONDES', 'R SALVADOR DALI, 430',
+		 '4843-9334', 'F', '1986-07-06', '323.832.833-23', '1323288' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00009', 'JULIANO AGUILERA', 'R PORTUGAL, 121',
+		 '4848-2322', 'M', '1976-06-02', '821.282.212-50', '13232328' ) ;
+
+INSERT INTO Clientes
+	VALUES ( '00010', 'MARIANA SOARES', 'R CANDIDO PORTINARI, 1340',
+		 '3848-2328', 'F', '1968-12-15', '321.321.325-00', '32131233' ) ;
+
+
+-- *
+-- * Povoando tabela CONTAS ...
+-- *
+
+INSERT INTO Contas
+	VALUES ( '1021', '1995-08-10', '0040', 568 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1022', '1995-09-01', '0060', 720 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1023', '1995-09-12', '0040', 150 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1024', '1995-10-23', '0050', 1047 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1025', '1995-10-25', '0060', 2100 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1026', '1995-10-04', '0050', 535 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1027', '1995-11-10', '0040', 100 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1028', '1995-11-12', '0050', 1500 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1029', '1995-11-17', '0050', 1050 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1030', '1995-11-26', '0040', 500 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1031', '1995-12-08', '0060', 50 ) ;
+
+INSERT INTO Contas
+	VALUES ( '1032', '1995-12-12', '0060', 0 ) ;
+
+
+-- *
+-- * Povoando tabela CLICONTAS ...
+-- *
+
+INSERT INTO CliContas
+	VALUES ( '00001', '1021', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00002', '1022', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00003', '1023', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00004', '1023', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00005', '1024', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00006', '1025', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00007', '1026', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00002', '1027', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00008', '1028', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00004', '1029', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00009', '1030', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00010', '1031', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00001', '1031', NULL ) ;
+
+INSERT INTO CliContas
+	VALUES ( '00005', '1032', NULL ) ;
+
+
+-- *
+-- * Povoando tabela MOVIMENTOS ...
+-- *
+
+INSERT INTO Movimentos
+	VALUES ( 1, '1021', '1995-08-10', 'C', 500, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 2, '1022', '1995-09-20', 'C', 750, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 3, '1021', '1995-09-20', 'D', 120, 'CHEQUE', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 4, '1023', '1995-09-22', 'C', 400, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 5, '1024', '1995-10-10', 'C', 920, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 6, '1024', '1995-10-12', 'D', 53, 'ORDEM DE PAGTO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 7, '1025', '1995-10-19', 'C', 2100, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 8, '1026', '1995-11-10', 'C', 535, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 9, '1021', '1995-11-12', 'D', 100, 'CHEQUE', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 10, '1022', '1995-11-20', 'D', 80, 'CHEQUE', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 11, '1027', '1995-12-10', 'C', 100, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 12, '1028', '1995-12-15', 'C', 1500, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 13, '1022', '1995-12-18', 'C', 50, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 14, '1023', '1995-12-18', 'D', 250, 'CHEQUE', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 15, '1029', '1995-12-19', 'C', 1050, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 16, '1030', '1995-12-20', 'C', 500, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 17, '1031', '1995-12-22', 'C', 50, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 18, '1021', '1995-12-22', 'C', 50, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 19, '1024', '1995-12-23', 'C', 180, 'DEPOSITO', NULL ) ;
+
+INSERT INTO Movimentos
+	VALUES ( 20, '1021', '1995-12-27', 'C', 238, 'DEPOSITO', NULL ) ;
+
+-- *
+-- * Concluindo a atualizacao ...
+-- *
+-- *
+-- * Fim deste script
+-- *

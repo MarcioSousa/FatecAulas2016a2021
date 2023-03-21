@@ -1,0 +1,63 @@
+CREATE TABLE Agencias
+( CdAgencia		CHAR(4)         NOT NULL,
+  NmAgencia		VARCHAR(30)	NOT NULL,
+  EndAgencia		VARCHAR(50)	NULL,
+  TelAgencia		VARCHAR(15)	NOT NULL ) ;
+
+CREATE TABLE Clientes
+( CdCliente		CHAR(5)         NOT NULL,
+  NmCliente		VARCHAR(40)	NOT NULL,
+  EndCliente		VARCHAR(50)	NOT NULL,
+  TelCliente		VARCHAR(15)     NULL,
+  SexCliente    	CHAR(1)         NOT NULL,
+  DtNasCliente  	DATETIME        NULL,
+  CPFCliente		VARCHAR(15)	NOT NULL,
+  RGCliente		VARCHAR(15)	NOT NULL ) ;
+
+CREATE TABLE CliContas
+( CdCliente		CHAR(5)		NOT NULL,
+  NrConta		CHAR(4)		NOT NULL,
+  Senha			VARCHAR(8)  	NULL ) ;
+
+CREATE TABLE Contas
+( NrConta		CHAR(4)			NOT NULL,
+  DtAbertura		DATETIME		NOT NULL,
+  CdAgencia		CHAR(4)			NOT NULL,
+  VrSaldo		NUMERIC(10,2)   	NULL ) ;
+
+CREATE TABLE Movimentos
+( NrMov			NUMERIC(12)		NOT NULL,
+  NrConta		CHAR(4)			NOT NULL,
+  DtMov			DATETIME 		NOT NULL,
+  TpMov			CHAR(1)			NOT NULL,
+  VrMov			NUMERIC(12,2)		NOT NULL,
+  DsMov			VARCHAR(20)		NOT NULL,
+  VrSaldo		NUMERIC(12,2)    	NULL ) ;
+
+--
+-- Definindo as chaves primárias de cada tabela
+--
+ALTER TABLE Agencias   ADD CONSTRAINT PK_Agencias   PRIMARY KEY( CdAgencia ) ;
+ALTER TABLE Clientes   ADD CONSTRAINT PK_Clientes   PRIMARY KEY( CdCliente ) ;
+ALTER TABLE CliContas  ADD CONSTRAINT PK_CliContas  PRIMARY KEY( NrConta, CdCliente ) ;
+ALTER TABLE Contas     ADD CONSTRAINT PK_Contas     PRIMARY KEY( NrConta ) ;
+ALTER TABLE Movimentos ADD CONSTRAINT PK_Movimentos PRIMARY KEY( NrMov ) ;
+
+--
+-- Definindo as outras restrições
+--
+ALTER TABLE Agencias   ADD CONSTRAINT UK_Age_NmAgencia  UNIQUE( NmAgencia ) ;
+
+ALTER TABLE Clientes   ADD CONSTRAINT CK_Cli_SexCliente CHECK( SexCliente IN( 'M', 'F' )) ;
+
+ALTER TABLE CliContas  ADD CONSTRAINT FK_CCo_Cli        FOREIGN KEY( CdCliente ) REFERENCES Clientes ;
+ALTER TABLE CliContas  ADD CONSTRAINT FK_CCo_Con        FOREIGN KEY( NrConta )   REFERENCES Contas ;
+
+ALTER TABLE Contas     ADD CONSTRAINT FK_Con_Age        FOREIGN KEY( CdAgencia ) REFERENCES Agencias ;
+ALTER TABLE Contas     ADD CONSTRAINT CK_Con_VrSaldo    CHECK( VrSaldo >= 0 ) ;
+
+ALTER TABLE Movimentos ADD CONSTRAINT FK_Mov_Con        FOREIGN KEY( NrConta ) REFERENCES Contas ;
+ALTER TABLE Movimentos ADD CONSTRAINT CK_Mov_VrMov      CHECK( VrMov > 0 ) ;
+ALTER TABLE Movimentos ADD CONSTRAINT CK_Mov_VrSaldo    CHECK( VrSaldo >= 0 ) ;
+ALTER TABLE Movimentos ADD CONSTRAINT CK_Mov_TpMov      CHECK ( TpMov IN( 'C', 'D' ) ) ;
+

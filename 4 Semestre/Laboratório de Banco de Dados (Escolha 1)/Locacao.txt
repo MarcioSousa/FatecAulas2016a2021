@@ -1,0 +1,72 @@
+CREATE TABLE Categorias
+( IdCateg	INT		PRIMARY KEY,
+  DsCateg	VARCHAR(40)	NOT NULL,
+  VrDiaria	NUMERIC (8,2)	NOT NULL);
+
+CREATE TABLE Veiculos
+( IdVeiculo	INT		PRIMARY KEY,
+  Placa		VARCHAR(7)	NOT NULL,
+  Marca		VARCHAR (40)	NOT NULL,
+  IdCateg	INT		REFERENCES Categorias);
+
+CREATE TABLE Clientes
+( IdCliente		INT		PRIMARY KEY,
+  Nome			VARCHAR (40)	NOT NULL,
+  Endereco		VARCHAR (40)	,
+  Cidade		VARCHAR (30)	,	
+  Telefone  		NUMERIC (8)	,
+  PontosFidelidade	INT);
+
+CREATE TABLE Locacoes
+( NumLoc	INT		PRIMARY KEY,
+  DataLoc	DATE		NOT NULL,
+  DataDev	DATE		,
+  VrTotal	NUMERIC (8,2)	,
+  IdVeiculo	INT		REFERENCES Veiculos,
+  IdCliente	INT		REFERENCES Clientes);
+
+INSERT INTO Categorias VALUES (1, 'Compacto', 124.00);
+INSERT INTO Categorias VALUES (2, 'Medio', 142.00);
+INSERT INTO Categorias VALUES (3, 'Grande', 188.00);
+INSERT INTO Categorias VALUES (4, 'Super Luxo', 231.00);
+
+INSERT INTO Veiculos VALUES (1, 'DSE1234', 'Fiat Uno', 1);
+INSERT INTO Veiculos VALUES (2, 'ABF9079', 'Gol', 1);
+INSERT INTO Veiculos VALUES (3, 'FNY2387', 'Citroen Aircross', 3);
+INSERT INTO Veiculos VALUES (4, 'JKI6566', 'Hyundai HB20', 3);
+INSERT INTO Veiculos VALUES (5, 'MJO3554', 'Fiat Doblo', 4);
+INSERT INTO Veiculos VALUES (6, 'PLI2244', 'Jeep Renegade', 4);
+INSERT INTO Veiculos VALUES (7, 'BGT5780', 'Renault Logan', 2);
+INSERT INTO Veiculos VALUES (8, 'LUA9067', 'Renault Sandero', 2);
+
+INSERT INTO Clientes VALUES (1,'Marcelo Cruz' ,'Rua Brasil, 35' ,'Jundiai',13124579, 0);
+INSERT INTO Clientes VALUES (2,'Jose da Silva' ,'Rua Argentina, 23' ,'Itu',45876548, 0);
+INSERT INTO Clientes VALUES (3,'Mia Bini' ,'Alameda Cavalcante, 12','Pindamonhangaba',45269887, 0);
+INSERT INTO Clientes VALUES (4,'Nelson Nerd' ,'Rua das Torres, 750','Araraquara',25412563, 0);
+INSERT INTO Clientes VALUES (5,'Rogerio Silva' ,'Avenida Castro Alves, 5500','Itu',68416845, 0);
+INSERT INTO Clientes VALUES (6,'Vinicius Beto' ,'Rua Brasil, 42','São Paulo',15478452, 0);
+INSERT INTO Clientes VALUES (7,'Candido Tavares' ,'Rua da Abolição, 350','Jundiai',13215468, 0);
+INSERT INTO Clientes VALUES (8,'Oswaldo Neto' ,'Rua Avestruz Limpa, 80','Araraquara',16789487, 0);
+INSERT INTO Clientes VALUES (9,'Ana Benedetti' ,'Rua Antônio Limones, 90','Jundiai',13215045, 0);
+INSERT INTO Clientes VALUES (10,'Bruno Mezenga' ,'Rua Major Mário Lacerda, 1340' ,'Pindamonhangaba',22400485, 0);
+
+INSERT INTO Locacoes VALUES (1, '13-09-2017', '18-09-2017', 0, 6, 1);
+INSERT INTO Locacoes VALUES (2, '25-03-2017', '27-03-2017', 0, 4, 3);
+INSERT INTO Locacoes VALUES (3, '15-11-2017', '', 0, 3, 3); 
+INSERT INTO Locacoes VALUES (4, '08-10-2017', '18-10-2017', 0, 1, 10);
+INSERT INTO Locacoes VALUES (5, '10-07-2017', '14-07-2017', 0, 8, 2);
+INSERT INTO Locacoes VALUES (6, '01-04-2017', '01-05-2017', 0, 2, 2);
+INSERT INTO Locacoes VALUES (7, '25-11-2017', '', 0, 5, 9);
+INSERT INTO Locacoes VALUES (8, '07-08-2017', '13-08-2017', 0, 6, 7);
+INSERT INTO Locacoes VALUES (9, '05-11-2017', '25-11-2017', 0, 4, 3);
+INSERT INTO Locacoes VALUES (10, '04-03-2017', '09-03-2017', 0, 4, 4);
+INSERT INTO Locacoes VALUES (11, '20-02-2017', '23-02-2017', 0, 5, 5);
+INSERT INTO Locacoes VALUES (12, '01-10-2017', '', 0, 7, 1);
+INSERT INTO Locacoes VALUES (13, '30-06-2017', '10-07-2017', 0, 7, 10);
+INSERT INTO Locacoes VALUES (14, '17-05-2017', '17-07-2017', 0, 3, 9);
+INSERT INTO Locacoes VALUES (15, '27-10-2017', '', 0, 3, 7);
+INSERT INTO Locacoes VALUES (16, '02-05-2017', '12-05-2017', 0, 2, 2);
+INSERT INTO Locacoes VALUES (17, '01-12-2017', '', 0, 4, 10);
+INSERT INTO Locacoes VALUES (18, '02-02-2017', '06-02-2017', 0, 6, 9);
+INSERT INTO Locacoes VALUES (19, '30-04-2017', '11-05-2017', 0, 3, 1);
+INSERT INTO Locacoes VALUES (20, '01-12-2017', '', 0, 1, 5);

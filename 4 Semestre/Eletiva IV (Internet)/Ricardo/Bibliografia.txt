@@ -1,0 +1,17 @@
+	SOARES, Walac. PHP 5 - Conceitos, Programação e Integração com Banco de Dados. Érica, 2004.
+ 	 
+ 	NETBEANS COMMUNITY (Brasil). Introdução aos Web Services RESTful. 2016. Disponível em: . Acesso em: 04 fev. 2016
+ 	 
+ 	W3C SCHOOLS. AngularJS Tutorial. 2016. Disponível em: . Acesso em: 04 fev. 2016.
+ 	 
+ 	BASHAM, Bryan. Use A Cabeça! Servlets e JSP. Alta Books, 2008
+ 	 
+ 	KURNIAWAN, B. Java para Web com Servlets, JSP e EJB. São Paulo: Ciência Moderna, 2002.
+ 	 
+ 	BORGES JR, M P. Desenvolvendo Webservices - Guia Rápido Usando Visual Studio.Net com Banco de dados Ciência Moderna, 2005.
+ 	 
+ 	BORGES JR, M P. Programando em C#.Net Para Web - Guia Rápido Usando Visual Studio.Net 2003. Ciência Moderna, 2005.
+ 	 
+ 	MCLAUGHLIN, B. Java And Xml. Oreilly & Assoc, 2006.
+ 	 
+ 	NARAMORE, E; GERNER, J; BORONCZYK, T. Beginning PHP 6, Apache, MYSQL 6 Web Development. John Wiley Consumer, 2009.

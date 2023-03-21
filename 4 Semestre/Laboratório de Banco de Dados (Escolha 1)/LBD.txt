@@ -1,0 +1,99 @@
+=== FUNÇÕES ===
+Uma função é semelhante a uma procedure porque também pode receber parâmetros.
+Mas é uma forma diferente de bloco PL/SQL
+- Sempre retorna valores.
+- É executada dentro de uma instrução SQL
+
+EX1 : 	CREATE FUNCTION DBO.FN_DEVDOBRO(@P1 Numeric)
+		RETURNS Numeric
+		AS
+		BEGIN
+			DECLARE @P2 Numeric
+			SET @P2 = P1 * 2
+			RETURN @P2
+		END
+		
+---------------------------
+-PARA EXECUTAR ESSA FUNÇÃO-
+		SELECT Descricao, vr_unitario, dbo.FN_DEVDOBRO(vr_unitario)
+		FROM produto
+		
+=====================================================================
+=====================================================================
+EX2: 	CREATE FUNCTION DBO.FN_DEVDESCR(@codp int)
+		RETURNS Varchar(20)
+		AS
+		BEGIN
+			DECLARE @Descr Varchar(20)
+			
+			SELECT @Descr = Descricao
+			FROM produto
+			WHERE cod_produto = @codp
+			
+			RETURN @Descr
+		END
+		
+---------------------------
+-PARA EXECUTAR ESSA FUNÇÃO-
+		SELECT cod_produto, dbo.FN_DEVDESCR(cod_produto)
+		FROM item_pedido
+		
+=====================================================================
+=====================================================================
+=== TRIGGERS OU GATILHOS ===
+-Trigger é um tipo especial de storeprocedure utilizado para ações de
+integridade de dados complexos.
+-É um objeto associado a uma TABELA.
+-É executado AUTOMATICAMENTE após a execução e um EVENTO(INSERT,
+UPDATE, DELETE).
+-É uma transação.
+-Podemos ter vários triggers associados a uma tabela.
+
+EX1: CRIAR um trigger que insira um registro na Tab.LogTeste toda vez
+que um produto é excluido.
+	CREATE TRIGGER DELETA_PRO
+	ON__________<== TABELA
+	FOR_________<== EVENTO
+	AS
+	CREATE TABLE LogTeste
+	(NRLog Numeric Primary key identity,
+	DtTrans date not null,
+	opera char(1) check(opera IN('I','A','E')))
+	
+EX2: CRIAR um trigger que insira um registro na LogTeste toda vez 
+que o produto for inserido, alterado ou excluido. Testar que tipo 
+de evento foi executado.
+	CREATE TRIGGER Manipula_prod
+	ON Produto
+	FOR INSERT, UPDATE, DELETE
+	AS
+	IF Exists(SELECT * FROM INSERTED) AND NOT Exists (SELECT * FROM DELETED)
+		INSERTE INTO LogTeste VALUES(getdate(),'I')
+	IF EXISTS(SELECT * FROM INSERTED) AND Exists (SELECT * FROM DELETED)
+		INSERTE INTO LogTeste VALUES(getdate(),'A')
+	IF NOT EXISTS(SELECT * FROM INSERTED) AND Exists (SELECT * FROM DELETED)
+		INSERTE INTO LogTeste VALUES(getdate(),'E')
+		
+EX3: CRIAR um trigger que, ao inserir um novo cliente, não permita que este cliente seja inserido antes do dia 20
+	CREATE TRIGGER Insere_Cli
+	ON Clientes
+	FOR INSERT
+	AS
+		DECLARE @Dia_hoje int
+		SET @Dia_hoje = day(GETDATE())
+		IF @Dia_hoje < 20
+		BEGIN
+			RAISSOR('Cliente não pode ser inserido antes do dia 20, 10.0')
+			ROLLBACK
+		END
+	END
+
+EX4: Criar um trigger que, ai inserir um novo pedido, considere para o campo data_compra a data de hoje + 15 dias
+	CREATE TRIGGER Insere_Pedido
+	ON Pedidos
+	FOR INSERT
+	AS
+		Update pedido
+		SET data_compra = getdate() + 15
+		WHERE num_pedido = (SELECT num_pedido FROM INSERTED)
+	END

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Controle de Empréstimos</title>
+
+    <meta name="description" content="Controle de Empréstimos com AngularJS e Bootstrap">
+    <meta name="author" content="Fatec Itu">
+    <!-- o layout com Bootstrap foi gerado através do site http://www.layoutit.com/ --> 
+    <!-- Carregando o bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Carregando o AngularJS do Google CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="js/emprestimos.js"></script>    
+       <!-- Carregando o CSS do projeto -->
+       <link rel="stylesheet" href="css/estilo.css"/>
+       <!-- Troca ícones -->
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body ng-app="meusEmprestimos" ng-controller="EmprestimoController">
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					 
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						 <span class="sr-only">Navegação</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button> <a class="navbar-brand" href="#">Fatec Itu</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">Sobre</a>
+						</li>
+						
+					</ul>
+				</div>
+				
+			</nav>
+			<div class="page-header">
+				<h1>
+					Controle Pessoal de Empréstimos <small>Desenvolvido com AngularJS e Bootstrap</small>
+				</h1>
+			</div>
+			<ul class="breadcrumb">
+				<li>
+					<a href="#">Início</a> <span class="divider">/</span>
+				</li>
+				<li class="active">
+                    Empréstimos 
+				</li>
+			</ul>
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#">Relação de Empréstimos&nbsp;
+                                        <span class="label label-danger label-as-badge">
+                                            {{emprestimos.length}}
+                                        </span>
+                                        </a>
+				</li>
+                <li class="active" ng-show="emprestimo.length > 0">
+                    <a href="">
+                        <p class="text-info">Filtro</p>
+                        <form>
+                            <input type="search" name="filtro" ng-model="buscaTexto" size="35" placeholder="Buscar por Descrição ou Responsável"/>
+                        </form>
+                    </a>
+	        </li>
+			</ul>	
+                    <div class="alert alert-info" ng-hide="emprestimos.length > 0">
+                        <p class="text-info">
+                            Você ainda não tem nenhum empréstimo cadastrado! <br>
+                            Cadastre um novo utilizando o formulário abaixo:
+                        </p>
+                    </div>
+            <div class="table-responsive" ng-show="emprestimos.length > 0" ng-init="campo='descricao'; ordem=true">
+                {{campo}} {{ordem}}
+			<table class="table table-hover table-condensed table-bordered">
+				<thead>
+					<tr class="success">
+                                                <th>Finalizado?</th>
+						<th>
+                                                    <a href="" ng-click="campo='descricao'; ordem=!ordem">
+                                                        Descriçao 
+                                                        <i class="fa fa-caret-down" ng-show="campo === 'descricao' && !ordem"></i>
+                                                        <i class="fa fa-caret-up" ng-show="campo === 'descricao' && ordem"></i>
+                                                    </a>
+                                                </th>
+						<th>Data do Empréstimo</th>
+						<th>
+                                                    <a href="" ng-click="campo='quantidade'; ordem=!ordem">
+                                                        Quantidade 
+                                                        <i class="fa fa-caret-down" ng-show="campo === 'quantidade' && !ordem"></i>
+                                                        <i class="fa fa-caret-up" ng-show="campo === 'quantidade' && ordem"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Categoria</th>
+						<th>Emprestado para</th>
+					</tr>
+                                        <tr class="info">
+                                            <td colspan="6"> Emprestimos a baixar: {{baixar()}} de um total de {{emprestimos.length}}</td>
+                                        </tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="emprestimo in emprestimos |orderBy:campo:ordem | filter:buscaTexto" ng-class="{finalizado: emprestimo.finalizado === true}">
+                                            <td><input type="checkbox" ng-model="emprestimo.finalizado"></td>
+                        
+                        <td>{{ emprestimo.descricao}}</td>
+                        <td>{{ emprestimo.data | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ emprestimo.quantidade }}</td>
+                        <td>{{ emprestimo.categoria }}</td>
+                        <td>{{ emprestimo.para }}</td>	
+					</tr>				
+					
+				</tbody>
+			</table>			
+			</div>
+                    <div class="well" ng-show="baixar()>0">
+                        <a href="" ng-click="baixaEncerrado()" class="btn btn-lg btn-danger">
+                            <i class="fa fa-ban"></i>
+                            <span class="glyphicon glyphicon-trash"></span> Remover Encerrados
+                        </a>
+                    </div>
+			
+            
+			<form class="form-horizontal" role="form" ng-submit="adicionaEmprestimo(emprestimo)">	
+            <fieldset>
+			<legend>Novo Empréstimo</legend>
+				<div class="form-group">					 
+					<label for="descricao" class="col-sm-2 control-label">
+						Descrição
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="descricao" ng-model="emprestimo.descricao" required />
+					</div>
+				</div>
+                <div class="form-group">					 
+					<label for="emprestimo" class="col-sm-2 control-label">
+						Data do Empréstimo
+					</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="emprestimo" ng-model="emprestimo.data" required />
+					</div>
+				</div>
+				<div class="form-group">					 
+					<label for="quantidade" class="col-sm-2 control-label">
+						Quantidade
+					</label>
+					<div class="col-sm-10">
+						<input type="number" min="0" class="form-control" id="quantidade" ng-model="emprestimo.quantidade" required/>
+					</div>
+				</div>
+                <div class="form-group">
+                  <label for="categoria" class="col-sm-2 control-label">Categoria:</label>
+                 <div class="col-sm-10">    
+                  <select class="form-control" id="categoria" ng-model="emprestimo.categoria" required>
+                    <option value="livro">Livros</option>
+                    <option value="cddvd">CD/DVD</option>
+                    <option value="roupas">Roupas</option>
+                    <option value="outros">Outros</option>
+                    <option value="" selected>Selecione...</option>  
+                  </select>
+                    </div>     
+                </div>
+                <div class="form-group">					 
+					<label for="para" class="col-sm-2 control-label">
+						Emprestado para
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="para" ng-model="emprestimo.para" required />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">					
+						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-file"></span> Incluir</button> 					
+					</div>
+				</div>
+                </fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="footer">
+      <div class="container">
+        <p class="muted credit">Fatec Itu &copy; - Disciplina Eletiva IV - Curso ADS</p>
+      </div>
+</div>
+  </body>
+</html>

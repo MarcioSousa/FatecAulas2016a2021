@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Tabela em Bootstrap</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Carregando o Bootstrap via CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- exemplo de um alerta -->
+                    <div class="alert alert-danger">
+                        <strong>Sucesso!</strong>
+O registro foi inserido com sucesso no
+<span lang="en">datawarehouse </span> da empresa!
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="img/foto.jpg" class="img-fluid" 
+                         title="Foto de um cãozinho"
+alt="Foto de um filhote de cachorro correndo"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+    <table class="table table-striped table-bordered">
+        <caption>Listagem de Preços</caption>
+                        <tr class="table-warning">
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                        </tr>
+                        <tr>
+                            <td>0014</td>
+                            <td>Arroz Agulhinha</td>
+                            <td class="text-right">14,90</td>
+                        </tr>
+                        <tr>
+                            <td>0918</td>
+                            <td>Feijão Carioca</td>
+                            <td class="text-right">3,95</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <tr class="table-primary">
+        <th colspan="3" class="text-center">Resumo de Vendas</th>
+                        </tr>
+                        <tr>
+        <td rowspan="2" class="text-center align-middle">RJ</td>
+                            <td>Niterói</td>
+                            <td class="text-right">9.100,00</td>
+                        </tr>
+                        <tr>
+                            <td>Macaé</td>
+                            <td class="text-right">1.900,00</td>
+                        </tr>
+<tr class="table-dark"><td colspan="2">Total RJ</td>
+<td class="text-right">11.000,00</td></tr>
+<tr><td rowspan="3" class="text-center align-middle">SP</td>
+<td>Itu</td><td class="text-right">8.500,00</td></tr>
+<tr><td>Salto</td><td class="text-right">7.500,00</td></tr>
+<tr><td>Sorocaba</td><td class="text-right">14.000,00</td></tr>
+<tr class="table-dark"><td colspan="2">Total SP</td>
+<td class="text-right">30.000,00</td></tr>
+<tr class="table-warning"><td colspan="2">Total Geral</td>
+    <td class="text-right">41.000,00</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

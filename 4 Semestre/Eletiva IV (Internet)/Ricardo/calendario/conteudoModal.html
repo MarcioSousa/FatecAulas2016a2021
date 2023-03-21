@@ -1,0 +1,16 @@
+
+      <div class="modal-header">
+        <h3 class="modal-title">Ocorreu uma ação no evento!</h3>
+      </div>
+      <div class="modal-body">
+        <p>Ação:
+        <pre>{{ calendario.action }}</pre>
+        </p>
+        <p>JSON do Evento:
+        <pre>{{ calendario.event | json }}</pre>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$close()">OK</button>
+      </div>
+    

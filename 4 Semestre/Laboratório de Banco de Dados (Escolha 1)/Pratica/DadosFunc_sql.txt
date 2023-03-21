@@ -1,0 +1,62 @@
+-- *
+-- *    Arquivo: DadosFunc_sql.sql
+-- *
+-- *      Autor: Cesar
+-- *
+-- *       Data: 06/09/2011
+-- *
+-- * Finalidade: Adicionar dados iniciais as tabelas referentes ao 
+-- *             Controle de Funcionarios Simplificado
+-- *
+
+
+-- *
+-- * Povoando tabela CARGOS ...
+-- *
+INSERT INTO Cargos VALUES ('C001', 'COZINHEIRA');
+
+INSERT INTO Cargos VALUES ('C003', 'AUX. ESCRITORIO');
+
+INSERT INTO Cargos VALUES ('C006', 'VIGIA');
+
+INSERT INTO Cargos VALUES ('C002', 'MECANICO');
+
+INSERT INTO Cargos VALUES ('C005', 'GERENTE');
+
+INSERT INTO Cargos VALUES ('C004', 'ESCRITURARIO');
+
+-- *
+-- * Povoando tabela DEPTOS ...
+-- *
+INSERT INTO Deptos VALUES ('D001', 'ADMINISTRACAO');
+
+INSERT INTO Deptos VALUES ('D002', 'OFICINA');
+
+INSERT INTO Deptos VALUES ('D003', 'SERVICOS GERAIS' );
+
+INSERT INTO Deptos VALUES ('D004', 'VENDAS');
+
+-- *
+-- * Povoando tabela FUNCIONARIOS ...
+-- *
+INSERT INTO Funcionarios VALUES ('1048', 'ANA SILVEIRA', 'RUA AMERICA, 79', '3261-1534', 'F', '1993-06-01', '2009-09-16', 4500, 'C005', NULL);
+
+INSERT INTO Funcionarios VALUES ('1001', 'JOAO SAMPAIO', 'ALAMEDA DAS ACACIAS, 100', '4028-9008', 'M', '1993-08-10', '2009-11-26', 1750, 'C002', 'D002');
+
+INSERT INTO Funcionarios VALUES ('1004', 'LUCIO TORRES', 'RUA 15 DE NOVEMBRO, 13', '4022-1335', 'M', '1994-03-02', '2011-02-05', 1200, 'C002', 'D002');
+
+INSERT INTO Funcionarios VALUES ('1021', 'JOSE NOGUEIRA', 'RUA EUROPA, 336', '2118-1566','M', '1994-11-10', '2011-03-11', 2050, 'C003', 'D001');
+
+INSERT INTO Funcionarios VALUES ('1042', 'PEDRO PINHEIRO', 'RUA JOAO PIRES, 02', '4022-7801','M', '1994-07-29', '2010-07-01', 1800, 'C004', 'D001');
+
+INSERT INTO Funcionarios VALUES ('1034', 'ROBERTO PEREIRA', 'RUA DOS EXPEDICIONARIOS, 23', '2118-1256', 'M', '1992-05-23', '2008-05-28', 2200, 'C003', 'D001');
+
+INSERT INTO Funcionarios VALUES ('1029', 'RUTH DE SOUZA', 'ALAMEDA PAU BRASIL, 451', '4028-1833', 'F', '1992-11-05', '2009-04-30', 1100, 'C001', 'D003');
+
+INSERT INTO Funcionarios VALUES ('1095', 'MARIA DA SILVA', 'RUA DOS ANDRADAS, 188', '4022-0607', 'F', '1992-09-03', '2010-10-01', 1650, 'C004', 'D001');
+
+INSERT INTO Funcionarios VALUES ('1023', 'LUIZ DE ALMEIDA', 'AVENIDA JOAO CAVALCANTE, 1020', '2118-4412', 'M', '1993-01-12', '2009-06-01', 1600, 'C002', 'D002');
+
+INSERT INTO Funcionarios VALUES ('1015', 'PAULO RODRIGUES', 'RUA ASIA, 133', '4022-1333', 'M', '1992-08-17', '2009-11-25', 1700, 'C002', 'D002');
+
+COMMIT ;

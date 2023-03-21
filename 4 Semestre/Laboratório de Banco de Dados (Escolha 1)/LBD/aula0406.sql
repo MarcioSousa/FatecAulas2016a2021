@@ -1,0 +1,58 @@
+CREATE DATABASE AULA0406
+GO
+
+USE AULA0406
+GO
+
+CREATE TABLE LOGTESTE(
+	NrLog numeric primary key identity,
+	DtTrans Date not null,
+	Opera char(1) Check(Opera IN('I','A','E'))
+);
+GO
+
+
+CREATE TRIGGER DELETA_PROD
+ON Produto 
+FOR DELETE
+AS
+	INSERT INTO LOGTESTE VALUES(getdate(),'E')
+GO
+
+DELETE FROM produto WHERE Cod_produto = 5
+GO
+
+SELECT * FROM Produto
+GO
+
+SELECT * FROM LOGTESTE
+GO
+
+CREATE TRIGGER MANIPULA_PROD
+ON Produto
+FOR INSERT, UPDATE, DELETE
+AS
+	IF EXISTS(SELECT * FROM inserted) AND NOT EXISTS(SELECT * FROM deleted)
+		INSERT INTO LOGTESTE VALUES(getdate(),'I')
+	IF EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
+		INSERT INTO LOGTESTE VALUES(getdate(),'A')
+	IF NOT EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted)
+		INSERT INTO LOGTESTE VALUES(getdate(),'E')
+GO
+
+UPDATE Produto SET Descricao = 'Teclado' WHERE Cod_produto = 1
+GO
+
+ALTER TRIGGER NOVOCLIENTE
+ON Cliente
+FOR INSERT
+AS
+	IF ((SELECT Day(getdate())) >= 20)
+		INSERT INTO Cliente VALUES(6,'Marcio','Rua José', 'Itu', 13300-000, 'SP')
+GO
+
+SELECT Day(getdate())
+
+INSERT INTO Cliente VALUES(2,'Marcio','Rua José', 'Itu', 13300-000, 'SP')
+
+SELECT * FROM Cliente

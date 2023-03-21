@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projeto CEP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- carregando o Angular-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <!-- Definindo o script do projeto -->
+        <script src = "js/app.js"></script>
+        <!-- Carregando o Bootstrap -->
+        <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+    </head>
+    <body ng-app="cepApp" ng-controller="cepController">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Fatec Itu</h1>
+                <p>Tecnologia: AngularJS e API ViaCep</p>
+            </div>
+            <h3 class="text-danger">Informe o cep desejado:</h3>
+            <form>
+                <div class="form-group">
+                    <input class="form-control" type="text"
+                           placeholder="Ex: 13310210"
+                           pattern="[0-9]{8}" maxlength = "8"
+                           title="Informe o CEP sem pontos ou traços"
+                           ng-model="cep"/>{{dados}}
+                </div>
+                <button href="" ng-click="buscaCep(cep)" 
+                        ng-disabled="!cep" class="btn btn-success">
+                    Procurar CEP     
+                </button>
+                <a href="" class="btn btn-danger">
+                    Limpar
+                </a>
+            </form>
+            <div class="alert alert-info" ng-show="aguarde" >
+                <p class="text-info">
+                    Aguarde, enquanto os dados são carregados...
+                </p>
+            </div>
+            <div ng-if="cep">
+                {{dados}}
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Form Name</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">Logradouro</label>  
+                            <div class="col-md-6">
+                                <input id="textinput" name="textinput" type="text" placeholder="Informe o Logradouro" class="form-control input-md" required="" ng-model ="dados.logradouro">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Text Input">Complemento</label>  
+                            <div class="col-md-5">
+                                <input id="Text Input" name="Text Input" type="text" placeholder="placeholder" class="form-control input-md" ng-model="dados.complemento">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">Bairro</label>  
+                            <div class="col-md-4">
+                                <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md" ng-model="dados.bairro">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">Cidade</label>  
+                            <div class="col-md-5">
+                                <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md" ng-model="dados.localidade">
+                                
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Text Input">UF</label>  
+                            <div class="col-md-2">
+                                <input id="Text Input" name="Text Input" type="text" placeholder="placeholder" class="form-control input-md" ng-model="dados.uf">
+
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="singlebutton">Opções</label>
+                            <div class="col-md-4">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div> 
+        <footer class="footer" style="position:fixed; left: 0px; bottom: 0px; height: 30px;width: 100%;background: #000000;">
+            <div class="container" ng-controller="horaController">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="#FFFFFF;">
+                            Fatec Itu {{relogio | date:'yyyy'}} &copy; - Todos os direitos reservados.
+                            <span class="glyphicon glyphicon-calendar"></span>
+                                {{relogio |date:'dd/MM/yyyy'}}
+                            <span class="glyphicon glyphicon-time"></span>
+                                {{relogio |date:'HH/mm/ss'}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

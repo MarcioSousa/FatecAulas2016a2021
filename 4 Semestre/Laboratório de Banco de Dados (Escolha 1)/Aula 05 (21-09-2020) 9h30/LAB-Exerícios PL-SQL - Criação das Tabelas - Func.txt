@@ -1,0 +1,47 @@
+-- *
+-- *    Arquivo: CriaFunc_sql.sql
+-- *
+-- *      Autor: Daniella
+-- *
+-- *       Data: 06/09/2011
+-- *
+-- * Finalidade: Criar as tabelas referentes ao Controle de Funcionarios
+-- *             Simplificado para o SQL-Server
+-- *
+
+
+-- *
+-- * Criando as tabelas ...
+-- *
+
+CREATE DATABASE FUNCIONARIOS
+USE FUNCIONARIOS
+CREATE TABLE Cargos
+     ( CdCargo      CHAR( 4 )			PRIMARY KEY,
+       NmCargo      VARCHAR( 20 )		NOT NULL UNIQUE);
+
+
+
+CREATE TABLE Deptos
+     ( CdDepto      CHAR( 4 )			PRIMARY KEY, 
+       NmDepto      VARCHAR( 20 )		NOT NULL UNIQUE);
+
+
+
+CREATE TABLE Funcionarios
+     ( CdFunc       CHAR( 4 )			PRIMARY KEY,
+       NmFunc       VARCHAR( 30 )		NOT NULL UNIQUE,
+       EndFunc	    VARCHAR( 30 )		,
+       TelFunc	    VARCHAR( 12 )		,
+       Sexo         CHAR( 1 )			NOT NULL CHECK( Sexo IN( 'M', 'F' ) ),
+       DtAdm        DATETIME			NOT NULL,
+       DtAdmissao   DATETIME			NOT NULL,
+       VrSalario    NUMERIC( 10, 2 )		CHECK( VrSalario >= 0 ),      
+       CdCargo      CHAR( 4 )			NOT NULL REFERENCES Cargos, 
+       CdDepto      CHAR( 4 )			REFERENCES Deptos);
+
+
+
+-- *
+-- * Fim deste script
+-- *

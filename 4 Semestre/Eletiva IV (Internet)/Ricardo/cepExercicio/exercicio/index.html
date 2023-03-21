@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Projeto CEP</title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- carregando o Angular-->
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+            <!-- Definindo o script do projeto -->
+            <script src = "js/app.js"></script>
+            <!-- Carregando o Bootstrap -->
+            <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+            </head>
+
+    <body ng-app="cepApp" ng-controller="cepController">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Fatec Itu</h1>
+                <p>Tecnologia: Angular e API ViaCep</p>
+                <p>Exercício do Aluno: Marcio Sousa</p>
+            </div>
+            <h3 class="text-danger">Informe o cep desejado:</h3>
+            <form>
+                <div class="form-group">
+                    <input class="form-control" type="text"
+                        placeholder="Ex:13300000"
+                        pattern="[0-9]{8}" maxlength="8"
+                        title="Informe o Cep sem pontos ou traços"
+                        ng-model="cep"/>{{dados}}
+                </div>
+                    <a href="" ng-click="buscaCep(cep)"
+                        ng-disabled="!cep" class="btn btn-success">
+                        Procurar CEP
+                    </a>
+                    <a href="" class="btn btn-danger">
+                        Limpar
+                    </a>
+            </form>
+            <div class="alert alert-info" ng-show="aguarde">
+                <p class="text-info">
+                    Aguarde, enquanto os dados são carregados...
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

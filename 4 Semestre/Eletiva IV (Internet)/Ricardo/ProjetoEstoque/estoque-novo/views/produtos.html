@@ -1,0 +1,255 @@
+<!-- Para facilitar a criação dos formulários, visite http://bootsnipp.com/forms ou http://www.layoutit.com/ -->
+
+<div ng-include src="'views/menu.html'"></div><br>
+<div class="container-fluid">
+    <div class="row">
+        <!-- coluna do formulario -->
+        <div class="col-md-6">
+            <!-- criacao do painel do formulario -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4><i class="glyphicon glyphicon-tags"></i> Cadastro de Produtos</h4>
+                </div>                    
+                <div class="panel-body">                    
+                    <!-- formulario criado através do site http://bootsnipp.com/forms -->
+                    <form name="formProduto" class="form-horizontal"   ng-submit="salvaProduto(produto);
+                            limpaProduto(formProduto);limpaFotoProduto(foto)">
+                        <fieldset>
+                            <!-- titulo do formulario -->
+                            <legend>Formulário de Produtos</legend>
+                            <!-- Exemplo de Caixa de Texto -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="id">Código:</label>  
+                                <div class="col-md-4">
+                                    <input id="descricao" name="id" type="text" placeholder="Gerado automaticamente" class="form-control input-md" readonly ng-model="produto.id" value="{{produto.id}}">                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="codigobarra">Código de Barra:*</label>  
+                                <div class="col-md-4">
+                                    <input id="codigobarra" name="codigobarra" type="text" placeholder="999999.999999" class="form-control input-md" required 
+                                           ng-model="produto.codigobarra" value="{{produto.codigobarra}}" ng-minlength="15"  ng-maxlength="15" mask='999999.999999-9'
+                                           pattern='[0-9]{6}[.][0-9]{6}[-][0-9]'>  
+                                    <div ng-class="{'alert alert-danger': formProduto.codigobarra.$invalid}" 
+                                         ng-messages="formProduto.codigobarra.$error" ng-if="formProduto.codigobarra.$touched">
+                                        <!-- somente exibiremos as mensagens de erros após o campo ter sido 'tocado' touched -->
+                                        <p ng-message="pattern">O código de barras deve seguir o padrão 999999.999999-9</p>
+                                        <p ng-message="required">O código de barras do produto é obrigatório.</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="nome">Nome:*</label>  
+                                <div class="col-md-6">
+                                    <input id="descricao" name="nome" type="text" placeholder="Nome do Produto" class="form-control input-md" required 
+                                           ng-model="produto.nome" value="{{produto.nome}}" ng-minlength="3"  ng-maxlength="50" size='30'
+                                           ng-init="formProduto.nome.$touched = false;">  
+                                    <div ng-class="{'alert alert-danger': formProduto.nome.$invalid}" 
+                                         ng-messages="formProduto.nome.$error" ng-if="formProduto.nome.$touched">
+                                        <!-- somente exibiremos as mensagens de erros após o campo ter sido 'tocado' touched -->
+                                        <p ng-message="minlength">O nome do produto é muito curto.</p>
+                                        <p ng-message="maxlength">O nome do produto é muito longo.</p>
+                                        <p ng-message="required">O nome do produto é obrigatório.</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- QrCode utilizando a API do Google - somente é exibido após o usuário informar a descrição e o código de barra -->
+                            <div class="form-group" ng-show='produto.codigobarra && produto.nome'>
+                                <label class="col-md-2 control-label">Qr Code:</label>  
+                                <div class="col-md-4" >
+                                    <img src="http://chart.apis.google.com/chart?cht=qr&chl='{{produto.codigobarra}}&chs=120x120"
+                                         alt="QR code do produto {{produto.nome}}"
+                                         title="QR code do produto {{produto.nome}}"/>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="preco">Preço:*</label>  
+                                <div class="col-md-4">
+                                    <input id="preco" name="preco" type="number" placeholder="0,00" class="form-control input-md" required campo-preco
+                                           ng-model="produto.preco" value="{{produto.preco|number:2}}" ng-min='0.01' ng-max='99999' step='0.01'
+                                           ng-init="formProduto.preco.$touched = false;">  
+                                    <div ng-class="{'alert alert-danger': formProduto.preco.$invalid}" 
+                                         ng-messages="formProduto.preco.$error" ng-if="formProduto.preco.$touched">
+                                        <!-- somente exibiremos as mensagens de erros após o campo ter sido 'tocado' touched -->
+                                        <p ng-message="min">O preço do produto não pode ser negativo ou zero!</p>
+                                        <p ng-message="max">O preco do produto ultrapassa 99.999!</p>
+                                        <p ng-message="required">O preço do produto é obrigatório.</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="grupo">Grupo:*</label>
+                                <div class="col-md-6">
+                                    <!-- Iremos trazer desabilitado no combo os grupos cujo status é false
+                                         Com o track by, permitemos diferenciar os registros para o Angular saber qual é o selecionado
+                                    -->
+                                    <select name="grupo" ng-model="produto.grupo" 
+                                            ng-init="carregaGrupos();"                                             
+                                            ng-options="grupo as grupo.nome disable when grupo.status == false for grupo in grupos track by grupo.id"
+                                            class="form-control" required >
+                                        <option value="">Selecione...</option>
+                                    </select>
+                                    <div ng-class="{'alert alert-danger': formProduto.grupo.$invalid}" 
+                                         ng-messages="formProduto.grupo.$error" ng-if="formProduto.grupo.$touched">
+                                        <!-- somente exibiremos as mensagens de erros após o campo ter sido 'tocado' touched -->
+                                        <p ng-message="required">É obrigatório selecionar um Grupo</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- Exemplo de Checkbox -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="status">Status:*</label>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+
+                                       <input type="checkbox" id="status" name="status" ng-model="produto.status" ng-checked="produto.status == 1" ng-true-value="1" ng-false-value="0" >        
+
+                                        <label class="control-label" for="status">Produto está ativo para uso?</label>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <!-- campo data -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="validade">Validade:</label>  
+                                <div class="col-md-6">
+                                    <input id="validade" name="validade" type="date" class="form-control input-md"  
+                                           ng-model="produto.validade" value="{{produto.validade}}" >                                      
+                                </div>
+                            </div>
+                            <!-- foto -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="foto">Foto:*</label>
+                                <div class="col-md-8">                                    
+                                    <input type="file" ng-model="produto.foto" id="fotoproduto" name="foto" accept="image/*" maxsize="500" required base-sixty-four-input>
+                                    <div ng-class="{'alert alert-danger': formProduto.foto.$invalid}" ng-if="formProduto.foto.$touched">                                         
+                                        <p ng-show="formProduto.foto.$error.maxsize">Tamanho do arquivo não pode exceder 500 KB</p>
+                                        <p ng-show="formProduto.foto.$error.accept">O tipo do arquivo é inválido! São aceitos apenas imagens</p>
+                                        <p ng-show="formProduto.foto.$error.required">É obrigatório selecionar uma imagem</p>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="form-group" ng-show="produto.foto">
+                                <label class="col-md-2 control-label" for="fotoselecionada">Imagem Selecionada:*</label>
+                                <div class="col-md-10" > 
+                                    <table class="table table-condensed">
+                                        <tr class="success">
+                                            <th>Arquivo</th><th>Tipo</th><th>Tamanho</th><th>Imagem</th>
+                                        </tr>
+                                        <tr>
+                                            <td>{{produto.foto.filename}}</td>
+                                            <td>{{produto.foto.filetype}}</td>
+                                            <td>{{produto.foto.filesize / 1024|number:0}}Kb</td>        
+                                            <td><img ng-src="data:image/jpeg;base64,{{produto.foto.base64}}" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Exemplo de botão -->
+                            <div class="well">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"></label>
+                                    <div class="col-md-8">
+                                        <button id="salvar" name="salvar" class="btn btn-success" type="submit" title="Salva os dados do formulário" data-ng-disabled="formProduto.$invalid"><i class="glyphicon glyphicon-save"></i>&nbsp;Salvar os dados</button>
+                                        <a href="" class="btn btn-danger" ng-click="limpaArrayProduto();menu()" title="Cancelar o cadastro"><span class="glyphicon glyphicon-share-alt"></span> Cancelar</a>
+                                        <div ng-messages='requisicaoServidor'>
+                                            <div ng-message='aguarde' class='text-info'>Por favor, aguarde...<img src='img/aguarde.gif'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                    </form>
+                    <!-- exibir todas as propriedades do formulario
+                    {{ formProduto | json }} -->
+                </div>
+                <div class="panel-footer">
+                    <h4>Campos marcados com * são de preenchimento obrigatório</h4>
+                </div>
+            </div>
+        </div>
+        <!-- coluna da tabela -->
+        <div class="col-md-6">
+            <!-- caixa de Pesquisa (somente é exibida quando há algum registro no array) -->
+            <div ng-show="produtos.length !== 0">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-search"></i></span>
+                    <input type="text"  ng-model="filterProduto"
+                           class="form-control input-lg" placeholder="Procurar...">
+                </div>
+            </div> 
+            <!-- fim da caixa de pesquisa -->
+
+            <!-- tabela com os dados. Ao inicializar, carrega os dados no array -->
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h4><span class="glyphicon glyphicon-th-list"></span> Listagem dos Produtos</h4></div>
+                <div class="panel-body">
+                    <div class="table-responsive">             
+                        <table class="table table-hover table-bordered" ng-init="carregaProdutos();" ng-show="produtos.length > 0">
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Foto</th>
+                                <th>Preço</th>  
+                                <th>Ativo?</th>
+                                <th colspan="2">Opções</th>
+                            </tr>
+                            <!-- utilizando a paginacao -->
+                            <tr dir-paginate="produto in produtos | filter:filterProduto |
+                                itemsPerPage: pageSize" current-page="currentPage" 
+                                pagination-id="produtosPagination">   
+                                <td>{{produto.id}}</td>
+                                <td>{{produto.nome}}</td>
+                                <td><img ng-src="data:image/jpeg;base64,{{produto.foto}}" class="img-responsive"/></td>
+                                <td style="text-align: right;">{{produto.preco|currency}}</td>
+                                <td>{{produto.status| simNao}}</td>  
+                                <td>
+                                    <button type="button" ng-click="obtemProdutoPeloId(produto)" class="btn btn-info" 
+                                            title="Editar o registro corrente"><i class="glyphicon glyphicon-edit"></i><small>Editar</small>                                    
+                                    </button>                                 
+                                </td>
+                                <td>                                          
+                                    <button type="button" class="btn btn-danger"  ng-click="confirmaExclusaoProduto(produto)">
+                                        <i class="glyphicon glyphicon-trash"></i><small>Excluir</small>
+                                    </button>    
+
+                                </td>                                
+                            </tr>                            
+                        </table>                
+                    </div>
+                </div>
+                <div class="panel-footer" ng-show="produtos.length > 0">
+                    <span class="badge pull-right">Total de Registros: {{(produtos|filter:filterProduto).length}} de {{produtos.length}}</span> 
+                </div>
+                <!-- Alerta quando não existem registros -->
+                <div class="alert alert-info"
+                     ng-show="produtos.length === 0">
+                    <p class="text-info">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Ainda não há nenhum registro cadastrado.
+                    </p>
+                </div> 
+                <!-- paginacao -->
+                <div class="text-center">
+                    <dir-pagination-controls boundary-links="true"
+                                             pagination-id="produtosPagination" 
+                                             on-page-change="pageChangeHandler(newPageNumber)"
+                                             template-url="views/paginacao.html"></dir-pagination-controls>
+                </div>
+                <!-- fim do alerta --> 
+            </div>
+        </div>
+    </div>
