@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.marciosousa.jokempo.MainActivity">
+
+    <ImageView
+        android:src="@drawable/interrogacao"
+        android:id="@+id/jogador1"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btnpedra"
+        android:layout_alignParentTop="true"
+        android:layout_width="140dp"
+        android:layout_height="140dp" />
+
+    <ImageView
+        android:src="@drawable/interrogacao"
+        android:id="@+id/jogador2"
+        android:layout_alignTop="@+id/jogador1"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/btntesoura"
+        android:layout_width="140dp"
+        android:layout_height="140dp" />
+
+    <ImageView
+        android:src="@drawable/vs"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:id="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnpapel" />
+
+    <ImageButton
+        android:onClick="tocouBotao"
+        android:src="@drawable/pedra"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btnpedra"
+        android:background="@android:color/holo_green_dark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:onClick="tocouBotao"
+        android:src="@drawable/tesoura"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btntesoura"
+        android:background="?android:attr/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/btnpapel" />
+
+    <ImageButton
+        android:onClick="tocouBotao"
+        android:src="@drawable/papel"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btnpapel"
+        android:background="@android:color/holo_blue_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageView3" />
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aluno_gti_ads.projetofaculdade.MainActivity">
+
+    <ImageView
+        android:id="@+id/imgCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="78dp"
+        android:layout_marginTop="89dp"
+        android:onClick="abrirCadastro"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/imgConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgCadastro"
+        android:layout_below="@+id/imgCadastro"
+        android:layout_marginTop="68dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/txtCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgCadastro"
+        android:layout_below="@+id/imgCadastro"
+        android:text="@string/titCadastro" />
+
+    <TextView
+        android:id="@+id/txtConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgConfig"
+        android:layout_below="@+id/imgConfig"
+        android:text="@string/Configuracao" />
+</RelativeLayout>

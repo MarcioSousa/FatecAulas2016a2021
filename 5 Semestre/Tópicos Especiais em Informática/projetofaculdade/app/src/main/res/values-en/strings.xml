@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">projetofaculdade</string>
+    <string name="titCadastro">Register</string>
+    <string name="Email">Mail</string>
+    <string name="Configuracao">Setting</string>
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aluno_gti_ads.jogodavelha.MainActivity">
+
+    <Button
+        android:id="@+id/btn11"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="69dp"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn12"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btn11"
+        android:layout_centerHorizontal="true"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn13"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btn12"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn21"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/btn11"
+        android:layout_alignStart="@+id/btn11"
+        android:layout_below="@+id/btn11"
+        android:layout_marginTop="57dp"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn22"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btn21"
+        android:layout_alignEnd="@+id/btn12"
+        android:layout_alignRight="@+id/btn12"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn23"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btn22"
+        android:layout_alignEnd="@+id/btn13"
+        android:layout_alignRight="@+id/btn13"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn31"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/btn21"
+        android:layout_alignStart="@+id/btn21"
+        android:layout_below="@+id/btn21"
+        android:layout_marginTop="69dp"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn32"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btn31"
+        android:layout_centerHorizontal="true"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn33"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btn32"
+        android:layout_alignEnd="@+id/btn23"
+        android:layout_alignRight="@+id/btn23"
+        android:onClick="jogada"
+        android:textSize="30sp" />
+
+</RelativeLayout>

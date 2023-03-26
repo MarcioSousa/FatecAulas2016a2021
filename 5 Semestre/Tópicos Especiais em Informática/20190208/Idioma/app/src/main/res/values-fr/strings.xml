@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Langue</string>
+    <string name="saudacao">Bienvenue</string>
+    <string name="tit_escolha_idioma">Choisir la Langue</string>
+    <string name="sair">Sortir</string>
+</resources>

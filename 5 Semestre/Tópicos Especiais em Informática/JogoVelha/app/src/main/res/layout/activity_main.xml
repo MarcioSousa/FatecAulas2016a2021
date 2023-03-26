@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aluno_gti_ads.jogovelha.MainActivity">
+
+    <Button
+        android:id="@+id/btn11"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="25dp"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn12"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignTop="@+id/btn11"
+        android:layout_centerHorizontal="true"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn13"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btn12"
+        android:layout_marginEnd="15dp"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn21"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignStart="@+id/btn11"
+        android:layout_below="@+id/btn11"
+        android:layout_marginTop="84dp"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn22"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignBaseline="@+id/btn21"
+        android:layout_alignBottom="@+id/btn21"
+        android:layout_alignStart="@+id/btn12"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn23"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignBaseline="@+id/btn21"
+        android:layout_alignBottom="@+id/btn21"
+        android:layout_alignStart="@+id/btn13"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn31"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignStart="@+id/btn21"
+        android:layout_below="@+id/btn22"
+        android:layout_marginTop="80dp"
+        android:onClick="escolha"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/btn32"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignTop="@+id/btn31"
+        android:layout_centerHorizontal="true"
+        android:onClick="escolha"
+        android:textSize="48sp"/>
+
+    <Button
+        android:id="@+id/btn33"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignStart="@+id/btn23"
+        android:layout_alignTop="@+id/btn32"
+        android:onClick="escolha"
+        android:textSize="48sp"/>
+
+    <Button
+        android:id="@+id/btnZerar"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp"
+        android:text="Zerar" />
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Agenda</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_contato">contato</string>
+
+    <string name="txtAux1">Nome: </string>
+    <string name="txtAux3">Endereço: </string>
+    <string name="txtAux5">Telefone: </string>
+
+    <string name="txtNome">Nome contato </string>
+    <string name="txtEndereco">Endereço contato </string>
+    <string name="txtTelefone">Telefone contato </string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WebService</string>
+
+    <string name="btnCadastro">Cadastro Usuário</string>
+    <string name="btnGravar">Gravar</string>
+
+    <string name="label_login">Login</string>
+    <string name="label_senha">Senha</string>
+</resources>

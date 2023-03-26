@@ -1,0 +1,69 @@
+package com.example.aluno_gti_ads.projetoidioma;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+
+import java.util.Locale;
+
+public class IdiomaActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_idioma);
+    }
+
+    public void fechar(View v){
+        finish();
+    }
+
+    public void idiomaPt(View v){
+        Locale idioma = new Locale("pt");
+        Locale.setDefault(idioma);
+
+        android.content.res.Configuration config = new android.content.res.Configuration();
+        config.setLocale(idioma);
+
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+
+        recreate();
+    }
+
+    public void idiomaEn(View v){
+        Locale idioma = new Locale("en");
+        Locale.setDefault(idioma);
+
+        android.content.res.Configuration config = new android.content.res.Configuration();
+        config.setLocale(idioma);
+
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+
+        recreate();
+    }
+
+    public void idiomaEs(View v){
+        Locale idioma = new Locale("es");
+        Locale.setDefault(idioma);
+
+        android.content.res.Configuration config = new android.content.res.Configuration();
+        config.setLocale(idioma);
+
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+
+        recreate();
+    }
+
+    public void idiomaFr(View v){
+        Locale idioma = new Locale("fr");
+        Locale.setDefault(idioma);
+
+        android.content.res.Configuration config = new android.content.res.Configuration();
+        config.setLocale(idioma);
+
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+
+        recreate();
+    }
+
+}

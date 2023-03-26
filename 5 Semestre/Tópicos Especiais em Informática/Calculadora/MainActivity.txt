@@ -1,0 +1,76 @@
+package br.com.cfsmarciosousa.calculadora;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Pattern;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView resposta;
+    private String display = "";
+    private String operadorCorrente = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        resposta = (TextView) findViewById(R.id.txtResposta);
+        resposta.setText(display);
+    }
+
+    public void onClickNumero(View v){
+        Button b = (Button) v;
+        display += b.getText();
+        atualizarTela();
+    }
+
+    private void atualizarTela(){
+        resposta.setText(display);
+    }
+
+
+    public void onClickOperador(View v){
+        Button b = (Button) v;
+        display += b.getText();
+        operadorCorrente = b.getText().toString();
+        atualizarTela();
+    }
+
+    protected void limpar(){
+        display = "";
+        operadorCorrente = "";
+    }
+
+    public void onClickLimpar(){
+        limpar();
+        atualizarTela();
+    }
+
+    public Double operate(String a, String b, String op){
+        switch (op){
+            case "+": return Double.valueOf(a) + Double.valueOf(b);
+            case "-": return Double.valueOf(a) - Double.valueOf(b);
+            case "*": return Double.valueOf(a) * Double.valueOf(b);
+            case "/": try{
+                return Double.valueOf(a) * Double.valueOf(b);
+            }catch (Exception ex){
+                Log.d("Calc",ex.getMessage());
+            }
+            default: return -1.0;
+        }
+    }
+
+    public void onClickIgual(View v){
+        String[] operation = display.split(Pattern.quote(operadorCorrente));
+        if(operation.length < 2) return;
+
+        Double _result = operate(operation[0], operation[1],operadorCorrente);
+
+        resposta.setText(display + "\n" + String.valueOf(_result));
+    }
+}

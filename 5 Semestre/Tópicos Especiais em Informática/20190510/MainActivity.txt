@@ -1,0 +1,50 @@
+package com.example.aluno_gti_ads.pesquisaquantitativa;
+
+import android.app.Activity;
+import android.app.SharedElementCallback;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.TextureView;
+import android.view.View;
+import android.widget.TextView;
+
+
+public class MainActivity extends Activity {
+    Integer qtde = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ler();
+
+
+    }
+
+    public void ler()
+    {
+        TextView notaPortugues = (TextView) findViewById(R.id.notaPort);
+        TextView notaMatematica = (TextView) findViewById(R.id.notaMat);
+        TextView notaIngles = (TextView) findViewById(R.id.notaIng);
+        TextView notaCiencias = (TextView) findViewById(R.id.notaCiec);
+        TextView notaInformatica = (TextView) findViewById(R.id.notaInf);
+
+        SharedPreferences dados = getSharedPreferences("notas", MODE_PRIVATE);
+        qtde = dados.getInt("qtde", 0);
+
+        if (qtde != 0) {
+            notaPortugues.setText(Float.toString(dados.getFloat("port", 0) / qtde));
+            notaMatematica.setText(Float.toString(dados.getFloat("mat", 0) / qtde));
+            notaIngles.setText(Float.toString(dados.getFloat("ing", 0) / qtde));
+            notaCiencias.setText(Float.toString(dados.getFloat("cie", 0) / qtde));
+            notaInformatica.setText(Float.toString(dados.getFloat("inf", 0) / qtde));
+        }
+    }
+
+    public void Onclick(View v){
+        Intent tela = new Intent(this, CalcMedia.class);
+        startActivityForResult(tela, 1);
+    }
+}

@@ -1,0 +1,46 @@
+package com.example.aluno_gti_ads.pesquisaquantitativa;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.EditText;
+
+public class CalcMedia extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_calc_media);
+
+
+    }
+
+    public void adicionarShered(View v){
+        EditText port = (EditText) findViewById(R.id.textPort);
+
+        SharedPreferences ler = getSharedPreferences("notas", MODE_PRIVATE);
+        Integer qtde = ler.getInt("qtde", 0) + 1;
+        Float portugues =  ler.getFloat("port", 0);
+        Float matematica =  ler.getFloat("mat", 0);
+        Float ingles =  ler.getFloat("ing", 0);
+        Float ciencias =  ler.getFloat("cie", 0);
+        Float informatica =  ler.getFloat("inf", 0);
+
+        SharedPreferences.Editor dados = getSharedPreferences("notas", MODE_PRIVATE).edit();
+        dados.putInt("qtde", qtde);
+        dados.putFloat("port", Float.parseFloat( port.getText().toString() ) + portugues);
+        dados.putFloat("mat", Float.parseFloat( port.getText().toString() ) + matematica);
+        dados.putFloat("ing", Float.parseFloat( port.getText().toString() ) + ingles);
+        dados.putFloat("cie", Float.parseFloat( port.getText().toString() ) + ciencias);
+        dados.putFloat("inf", Float.parseFloat( port.getText().toString() ) + informatica);
+        dados.commit();
+
+        finish();
+    }
+
+
+
+
+}
